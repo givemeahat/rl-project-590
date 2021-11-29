@@ -8,6 +8,7 @@ public class jankController : MonoBehaviour
 {
     private Rigidbody2D m_Rigidbody2D;
     public bool dive;
+    //testgit
     // public float m_DiveForcey;
     // public float m_DiveForcex;
     public float min_xforce;
