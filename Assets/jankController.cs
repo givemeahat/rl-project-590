@@ -74,7 +74,6 @@ public class jankController : MonoBehaviour
 
     public void dive(){
         m_Rigidbody2D.gravityScale = added_gravity;
-        Debug.Log("dived");
     }
 
     public void diveFalse(){
