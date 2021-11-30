@@ -1,0 +1,29 @@
+{
+    "jankTest1": {
+        "checkpoints": [
+            {
+                "steps": 24645,
+                "file_path": "results\\run11\\jankTest1\\jankTest1-24645.onnx",
+                "reward": 4.217708208669168,
+                "creation_time": 1638262261.4712262,
+                "auxillary_file_paths": [
+                    "results\\run11\\jankTest1\\jankTest1-24645.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 24645,
+            "file_path": "results\\run11\\jankTest1.onnx",
+            "reward": 4.217708208669168,
+            "creation_time": 1638262261.4712262,
+            "auxillary_file_paths": [
+                "results\\run11\\jankTest1\\jankTest1-24645.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "1.7.0+cu110"
+    }
+}

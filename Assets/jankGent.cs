@@ -37,22 +37,23 @@ public class jankGent : Agent
     {
         ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
         if(Input.GetButtonDown("Dive")){
-            discreteActions[0] = 2;
+            discreteActions[0] = 1;
+            Debug.Log("dive");
         }
         if(Input.GetButtonUp("Dive")){
-            discreteActions[0] = 1;
+            discreteActions[0] = 0;
         }
     }
 
     public override void OnActionReceived(ActionBuffers actions)
     {
         int dive = actions.DiscreteActions[0];
-        if (Mathf.FloorToInt(dive) == 2){
+        if (Mathf.FloorToInt(dive) == 1){
             controller.dive();
             diving = true;
 
         }
-        if (Mathf.FloorToInt(dive) == 1){
+        if (Mathf.FloorToInt(dive) == 0){
             controller.diveFalse();
             diving = false;
         }
@@ -64,7 +65,13 @@ public class jankGent : Agent
     {
         velocity = m_Rigidbody2D.velocity;
         float speed = velocity.magnitude;
-        if (velocity.x < controller.min_xforce + buffer){
+        // if (velocity.x < controller.min_xforce + buffer){
+        //     AddReward(-speed/10);
+        // }
+        if (velocity.x == 0){
+            AddReward(-.05f);
+        }
+        if (velocity.x < 0){
             AddReward(-speed/10);
         }
         else if (velocity.x > controller.min_xforce + buffer){
