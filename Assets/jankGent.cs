@@ -2,18 +2,77 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
-
+using Unity.MLAgents.Sensors;
+using System;
+using Unity.MLAgents.Actuators;
+// TODO: regenerate terrain each time the episode restarts;
 public class jankGent : Agent
 {
-    // Start is called before the first frame update
-    void Start()
+    private Rigidbody2D m_Rigidbody2D;
+    public jankController controller;
+    public Vector2 velocity;
+    public float episodeLength;
+    public float buffer; //arbitrary buffer added to min_xforce when deciding reward; buffer needed because min_xforce is often exceeded due to natural gravity
+    public float timerCountDown;
+    private bool timerOn;
+    public float reward;
+
+    public override void Initialize()
     {
+        m_Rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    public override void OnEpisodeBegin()
+    {
+        StartCoroutine(controller.Reset());
+        timerOn = true;
+        timerCountDown = episodeLength;
 
     }
+
+    public override void Heuristic(in ActionBuffers actionsOut)
+    {
+        ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
+        if(Input.GetButtonDown("Dive")){
+            discreteActions[0] = 1;
+        }
+        if(Input.GetButtonUp("Dive")){
+            discreteActions[0] = 2;
+        }
+    }
+
+    public override void OnActionReceived(ActionBuffers actions)
+    {
+        int dive = actions.DiscreteActions[0];
+        if (Mathf.FloorToInt(dive) == 1)
+            controller.dive();
+        if (Mathf.FloorToInt(dive) == 2)
+            controller.diveFalse();
+    }
+
 
     // Update is called once per frame
     void Update()
     {
+        velocity = m_Rigidbody2D.velocity;
+        float speed = velocity.magnitude;
+        if (velocity.x < controller.min_xforce + buffer){
+            AddReward(-speed/10);
+        }
+        else if (velocity.x > controller.min_xforce + buffer){
+            AddReward(speed/10);
+        }
+
+        if(timerOn){
+            if(timerCountDown > 0){
+                timerCountDown -= Time.deltaTime;
+            }
+            else{
+                EndEpisode();
+            }
+        }
+        reward = GetCumulativeReward();
 
     }
+
 }

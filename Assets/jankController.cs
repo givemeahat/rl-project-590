@@ -4,10 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
+
+
 public class jankController : MonoBehaviour
 {
     private Rigidbody2D m_Rigidbody2D;
-    public bool dive;
     //testgit
     // public float m_DiveForcey;
     // public float m_DiveForcex;
@@ -31,12 +32,11 @@ public class jankController : MonoBehaviour
     public bool downhill;
     public bool uphill;
 
-    public bool reset;
+    public bool reset = false;
 
     [SerializeField] private float slopeCheckDistance;
 
     public terrainGen TerrainGen;
-    public bool spawn = true;
     private Vector3 splineReference; 
 
 
@@ -48,31 +48,35 @@ public class jankController : MonoBehaviour
     }
     void Start()
     {
+      // SpawnPosition();
     }
 
     // Update is called once per frame
     void Update()
     {
         if(reset){
-          Reset();
+          StartCoroutine(Reset());
           reset = false;
-          spawn = true;
         }
-        if(Input.GetButtonDown("Dive")){
-          // m_Rigidbody2D.AddForce(new Vector2(m_DiveForcex, m_DiveForcey));
-          // m_Rigidbody2D.mass = mass;
-          m_Rigidbody2D.gravityScale = added_gravity;
-          dive = true;
-        }
-        if(Input.GetButtonUp("Dive")){
-          // m_Rigidbody2D.AddForce(new Vector2(m_DiveForcex, m_DiveForcey));
-          // m_Rigidbody2D.mass = original_mass;
-          m_Rigidbody2D.gravityScale = original_gravity;
-          dive = false;
-        }
+        //Jank is now controllable by keyboard input in jankgent
+        // if(Input.GetButtonDown("Dive")){
+        //   dive();
+        // }
+        // if(Input.GetButtonUp("Dive")){
+        //   diveFalse();
+        // }
+
         SlopeCheck();
 
 
+    }
+
+    public void dive(){
+        m_Rigidbody2D.gravityScale = added_gravity;
+    }
+
+    public void diveFalse(){
+        m_Rigidbody2D.gravityScale = original_gravity;
     }
 
     void FixedUpdate(){
@@ -93,18 +97,20 @@ public class jankController : MonoBehaviour
           m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * slopeNormalPerpendicular.y * -1f)));
 
         }
-        if(spawn){
-          SpawnPosition();
-        }
+        // if(grounded && !uphill && !downhill){
+        //   m_Rigidbody2D.AddForce(new Vector2(min_xforce, 0));
+        // }
+        
+
+        
     }
     
     //SpawnPosition transforms the jank location to a little bit above the spline point number #150; since 150 is even, it should always start at the tip of the hill
     //Should call this function every time respawn;
     public void SpawnPosition(){
         splineReference = TerrainGen.shape.spline.GetPosition(150)*TerrainGen.transform.localScale.x;
-        transform.position = new Vector3(splineReference.x, splineReference.y + colliderSize.y ,0);
-        // Debug.Log(transform.position);
-        spawn = false;
+        transform.position = new Vector3(splineReference.x, splineReference.y + colliderSize.y + 0.2f ,0);
+        Debug.Log(transform.position);
     }
     void OnCollisionEnter2D(Collision2D col){
       
@@ -120,7 +126,7 @@ public class jankController : MonoBehaviour
       if(slopeNormalPerpendicular.y <= 0){
         uphill = true;
         downhill = false;
-      } else {
+      } else if (slopeNormalPerpendicular.y > 0){
         uphill = false;
         downhill = true;
       }
@@ -175,16 +181,27 @@ public class jankController : MonoBehaviour
       }
     }
 
-    public void Reset(){
-      transform.position = new Vector3(0,0,0);
-      m_Rigidbody2D.velocity = new Vector2(0,0);
+    public IEnumerator Reset(){
+      TerrainGen.generateTerrain();
+      yield return new WaitUntil(isReady);
+      SpawnPosition();
+      Debug.Log("waht s goin on");
+      m_Rigidbody2D.velocity = Vector3.zero;
+    }
+
+    bool isReady(){
+      if(TerrainGen.shape.spline.GetPosition(150).y > 1){
+        return true;
+      }
+      else{
+        return false;
+      }
     }
 
 
 //TODO: 1. implement reward/score (based on distance traveled or velocity? game ends after 30s?
 //       ***reward: limit time per episode, track distance? or limit distance per episode, track time?
 //       ***reward: velocity vector value (negative if going back) 0 reward if min velocity; -1 if slower; +1 if faster
-//TODO: 2. game restart function, resets velocity, position, timer (part of jank gent)
 //TODO: 3. hard code feature or pass along raw frame?
         // (1) velocity vector, (2) front slopes (10) (all visible in camera frame), (3) acceleration (4) vertical distance from ground
 

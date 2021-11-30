@@ -1,0 +1,42 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1638212834",
+        "python_version": "3.8.5 (default, Sep  4 2020, 02:22:02) \n[Clang 10.0.0 ]",
+        "command_line_arguments": "/Users/sginw/Desktop/CVGIT/Jank/venv/bin/mlagents-learn",
+        "mlagents_version": "0.27.0",
+        "mlagents_envs_version": "0.27.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.7.0",
+        "numpy_version": "1.21.4",
+        "end_time_seconds": "1638212895"
+    },
+    "total": 60.813703287,
+    "count": 1,
+    "self": 0.022636411000000578,
+    "children": {
+        "run_training.setup": {
+            "total": 0.050303484999998815,
+            "count": 1,
+            "self": 0.050303484999998815
+        },
+        "TrainerController.start_learning": {
+            "total": 60.740763391,
+            "count": 1,
+            "self": 9.160199999058705e-05,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 60.74065062100001,
+                    "count": 1,
+                    "self": 60.74065062100001
+                },
+                "TrainerController._save_models": {
+                    "total": 2.1168000003513043e-05,
+                    "count": 1,
+                    "self": 2.1168000003513043e-05
+                }
+            }
+        }
+    }
+}
