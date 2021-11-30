@@ -17,6 +17,8 @@ public class jankGent : Agent
     private bool timerOn;
     public float reward;
 
+    public bool diving;
+
     public override void Initialize()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -25,6 +27,7 @@ public class jankGent : Agent
     public override void OnEpisodeBegin()
     {
         StartCoroutine(controller.Reset());
+        // controller.Reset();
         timerOn = true;
         timerCountDown = episodeLength;
 
@@ -34,20 +37,25 @@ public class jankGent : Agent
     {
         ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
         if(Input.GetButtonDown("Dive")){
-            discreteActions[0] = 1;
+            discreteActions[0] = 2;
         }
         if(Input.GetButtonUp("Dive")){
-            discreteActions[0] = 2;
+            discreteActions[0] = 1;
         }
     }
 
     public override void OnActionReceived(ActionBuffers actions)
     {
         int dive = actions.DiscreteActions[0];
-        if (Mathf.FloorToInt(dive) == 1)
+        if (Mathf.FloorToInt(dive) == 2){
             controller.dive();
-        if (Mathf.FloorToInt(dive) == 2)
+            diving = true;
+
+        }
+        if (Mathf.FloorToInt(dive) == 1){
             controller.diveFalse();
+            diving = false;
+        }
     }
 
 

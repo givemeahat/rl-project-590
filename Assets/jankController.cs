@@ -55,6 +55,7 @@ public class jankController : MonoBehaviour
     void Update()
     {
         if(reset){
+          // Reset();
           StartCoroutine(Reset());
           reset = false;
         }
@@ -94,8 +95,10 @@ public class jankController : MonoBehaviour
         }
         if(grounded && uphill){
           // m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x + min_xforce * slopeNormalPerpendicular.x * -1f, m_Rigidbody2D.velocity.y+ min_xforce*slopeNormalPerpendicular.y * -1f);
+          
           m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * slopeNormalPerpendicular.y * -1f)));
-
+          // Debug.Log("should do something");
+          // Debug.Log(m_Rigidbody2D.velocity);
         }
         // if(grounded && !uphill && !downhill){
         //   m_Rigidbody2D.AddForce(new Vector2(min_xforce, 0));
@@ -110,7 +113,8 @@ public class jankController : MonoBehaviour
     public void SpawnPosition(){
         splineReference = TerrainGen.shape.spline.GetPosition(150)*TerrainGen.transform.localScale.x;
         transform.position = new Vector3(splineReference.x, splineReference.y + colliderSize.y + 0.2f ,0);
-        Debug.Log(transform.position);
+        // transform.position = new Vector3(0,60,0);
+        // Debug.Log(transform.position);
     }
     void OnCollisionEnter2D(Collision2D col){
       
@@ -185,9 +189,16 @@ public class jankController : MonoBehaviour
       TerrainGen.generateTerrain();
       yield return new WaitUntil(isReady);
       SpawnPosition();
-      Debug.Log("waht s goin on");
+      // Debug.Log("waht s goin on");
       m_Rigidbody2D.velocity = Vector3.zero;
     }
+
+    // public void Reset(){
+    //   TerrainGen.generateTerrain();
+    //   SpawnPosition();
+    //   m_Rigidbody2D.velocity = Vector3.zero;
+    // }
+    
 
     bool isReady(){
       if(TerrainGen.shape.spline.GetPosition(150).y > 1){
