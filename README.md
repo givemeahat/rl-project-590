@@ -16,3 +16,8 @@ Play the game in Unity:
 2. go to Hierarchy>gameobjects, check that the jankgent component is on Heuristic Only
 3. hit play
 4. dive with the down arrow key
+
+To train new models on the game: (example with testing.yaml in the ppo config folder)
+<pre><code>mlagents-learn config/ppo/testing.yaml</code></pre>
+
+See <code>mlagents-learn --help</code> for other possible flags.
