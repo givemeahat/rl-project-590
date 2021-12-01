@@ -1,0 +1,47 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1638299671",
+        "python_version": "3.8.7 (tags/v3.8.7:6503f05, Dec 21 2020, 17:59:51) [MSC v.1928 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\18wan\\Desktop\\GitHub\\rl-project-590\\venv\\Scripts\\mlagents-learn config\\ppo\\jankTest1.yaml --run-id 24",
+        "mlagents_version": "0.27.0",
+        "mlagents_envs_version": "0.27.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.7.0+cu110",
+        "numpy_version": "1.21.4",
+        "end_time_seconds": "1638299725"
+    },
+    "total": 54.3246413,
+    "count": 1,
+    "self": 0.007606899999998973,
+    "children": {
+        "run_training.setup": {
+            "total": 0.119255,
+            "count": 1,
+            "self": 0.119255
+        },
+        "TrainerController.start_learning": {
+            "total": 54.1977794,
+            "count": 1,
+            "self": 0.0003707000000119365,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 54.197393999999996,
+                    "count": 1,
+                    "self": 54.197393999999996
+                },
+                "trainer_threads": {
+                    "total": 7.999999951380232e-07,
+                    "count": 1,
+                    "self": 7.999999951380232e-07
+                },
+                "TrainerController._save_models": {
+                    "total": 1.3899999999011925e-05,
+                    "count": 1,
+                    "self": 1.3899999999011925e-05
+                }
+            }
+        }
+    }
+}
