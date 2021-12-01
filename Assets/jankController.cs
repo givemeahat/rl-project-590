@@ -91,7 +91,7 @@ public class jankController : MonoBehaviour
         }
         if(grounded){
           m_Rigidbody2D.AddForce(new Vector2(min_xforce , 0));
-          m_Rigidbody2D.drag = 0;
+          // m_Rigidbody2D.drag = 0;
         }
         if(grounded && uphill){
           // m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x + min_xforce * slopeNormalPerpendicular.x * -1f, m_Rigidbody2D.velocity.y+ min_xforce*slopeNormalPerpendicular.y * -1f);
