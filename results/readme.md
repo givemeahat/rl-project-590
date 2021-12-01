@@ -1,0 +1,1 @@
+This folder contains models etc. from training runs. Each run folder has a .md file that details what is changed from previous runs.
