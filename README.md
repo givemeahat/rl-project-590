@@ -1,1 +1,1 @@
-# rl-project-590: Training PPO on New Game
+# rl-project-590: RL Training with PPO on New Game
