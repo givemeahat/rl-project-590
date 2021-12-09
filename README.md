@@ -1,4 +1,4 @@
-# rl-project-590: RL Training with PPO on NoWings
+# rl-project-590: RL Training with PPO on clone of Flying Squirrel 
 
 Required setup to view/run trained models:
 1. Download Unity 2019.4.25f1
