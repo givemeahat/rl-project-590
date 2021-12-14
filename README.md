@@ -18,6 +18,6 @@ Play the game in Unity:
 4. dive with the down arrow key
 
 To train new models on the game: (example with testing.yaml in the ppo config folder)
-<pre><code>mlagents-learn config/ppo/testing.yaml</code></pre>
+<code>mlagents-learn config/ppo/testing.yaml</code>
 
 See <code>mlagents-learn --help</code> for other possible flags.
