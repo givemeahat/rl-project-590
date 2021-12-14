@@ -21,3 +21,5 @@ To train new models on the game: (example with testing.yaml in the ppo config fo
 <code>mlagents-learn config/ppo/testing.yaml</code>
 
 See <code>mlagents-learn --help</code> for other possible flags.
+
+![alt text](https://github.com/iigindesign/rl-project-590/blob/Dev/images/pre.png)
