@@ -1,4 +1,8 @@
-# rl-project-590: RL Training with PPO on clone of Flying Squirrel 
+# rl-project-590: RL Training with PPO on clone of Flying Squirrel
+<p align="center" width="100%">
+  <img width="30%" src="https://github.com/iigindesign/rl-project-590/blob/Dev/images/pre.png">
+  <img width="30%" src="https://github.com/iigindesign/rl-project-590/blob/Dev/images/jank.gif">
+</p>
 
 Required setup to view/run trained models:
 1. Download Unity 2019.4.25f1
@@ -22,4 +26,12 @@ To train new models on the game: (example with testing.yaml in the ppo config fo
 
 See <code>mlagents-learn --help</code> for other possible flags.
 
-![alt text](https://github.com/iigindesign/rl-project-590/blob/Dev/images/pre.png)
+We ran a total of three experiments with varied reward systems and yielded the following results: 
+<p align="center" width="100%">
+  <img width="20%" src="https://github.com/iigindesign/rl-project-590/blob/Dev/images/run9.png">
+  <img width="20%" src="https://github.com/iigindesign/rl-project-590/blob/Dev/images/run12.png">
+  <img width="20%" src="https://github.com/iigindesign/rl-project-590/blob/Dev/images/run26.png">
+  <img width="20%" src="https://github.com/iigindesign/rl-project-590/blob/Dev/images/combined.png">
+
+</p>
+More about the experiments are detailed in their respective folders.
