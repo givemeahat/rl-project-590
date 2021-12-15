@@ -10,3 +10,6 @@ This new run now has one branch of discrete action with 3 values instead of 2:
 
 This changed action schema resulted in way faster/higher cumulative reward compared to run9. At 5M steps reward peaked around ~200.
 
+<p align="center" width="100%">
+  <img width="40%" src="https://github.com/iigindesign/rl-project-590/blob/Dev/images/run26.png">
+</p>
