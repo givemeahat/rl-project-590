@@ -5,19 +5,29 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using System;
 using Unity.MLAgents.Actuators;
+using UnityEngine.UI;
+
 // TODO: regenerate terrain each time the episode restarts;
 public class jankGent : Agent
 {
     private Rigidbody2D m_Rigidbody2D;
-    public jankController controller;
-    public Vector2 velocity;
-    public float episodeLength;
-    public float buffer; //arbitrary buffer added to min_xforce when deciding reward; buffer needed because min_xforce is often exceeded due to natural gravity
-    public float timerCountDown;
+    [SerializeField] private jankController controller;
+    private Vector2 velocity;
+    [SerializeField] private float episodeLength;
+    [SerializeField] private float buffer; //arbitrary buffer added to min_xforce when deciding reward; buffer needed because min_xforce is often exceeded due to natural gravity
+    [SerializeField] private float timerCountDown; //// UI
     private bool timerOn;
-    public float reward;
+    private float reward; //// Display this on UI
 
-    public bool diving;
+    private bool diving; //// Display this on UI
+
+    public Text rewardUI;
+    public Text timerUI;
+    public Text divingUI;
+    public Text episodeLengthUI;
+    public Text speedUI; 
+
+
 
     public override void Initialize()
     {
@@ -56,14 +66,14 @@ public class jankGent : Agent
             discreteActions[0] = 2;
         }
 
-        Debug.Log("passing" + discreteActions[0]);
+        // Debug.Log("passing" + discreteActions[0]);
 
     }
 
     public override void OnActionReceived(ActionBuffers actions)
     {
         int dive = actions.DiscreteActions[0];
-        Debug.Log("received" + dive);
+        // Debug.Log("received" + dive);
         if (dive == 1){
             controller.dive();
             diving = true;
@@ -88,22 +98,32 @@ public class jankGent : Agent
             AddReward(-.05f);
         }
         if (velocity.x < 0){
-            AddReward(-speed/10);
+            AddReward(-speed/100);
         }
         else if (velocity.x > controller.min_xforce + buffer){
-            AddReward(speed/10);
+            AddReward(speed/100);
         }
+        reward = GetCumulativeReward();
 
         if(timerOn){
             if(timerCountDown > 0){
                 timerCountDown -= Time.deltaTime;
             }
             else{
+                Debug.Log("Reward of Episode: " + reward);
                 EndEpisode();
             }
         }
-        reward = GetCumulativeReward();
+        displayStats(reward, timerCountDown, diving, speed);
 
+    }
+
+    public void displayStats(float reward, float timer, bool diving, float speed){
+        rewardUI.text = "Reward: "+ System.Math.Round(reward,2);
+        timerUI.text = "Time Left: "+ System.Math.Round(timer,2) + "s";
+        divingUI.text = "Diving: "+ diving;
+        episodeLengthUI.text = "Episode Length: "+ episodeLength + "s";
+        speedUI.text = "Speed: "+ speed;
     }
 
 }

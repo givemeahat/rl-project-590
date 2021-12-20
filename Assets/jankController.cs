@@ -9,34 +9,28 @@ using System;
 public class jankController : MonoBehaviour
 {
     private Rigidbody2D m_Rigidbody2D;
-    //testgit
-    // public float m_DiveForcey;
-    // public float m_DiveForcex;
     public float min_xforce;
-    // public float min_yforce;
-    // public float original_mass;
-    // public float mass;
-    public float added_gravity;
-    public float original_gravity;
+    [SerializeField] private float added_gravity;
+    [SerializeField] private float original_gravity;
 
-    public float airDrag;
+    [SerializeField] private float airDrag;
 
-    public bool grounded;
+    private bool grounded;
 
-    public float slopeDownAngle;
-    public Vector2 slopeNormalPerpendicular;
-    public float slopeSideAngle;
-    public bool isOnSlope;
+    private float slopeDownAngle;
+    private Vector2 slopeNormalPerpendicular;
+    private float slopeSideAngle;
+    private bool isOnSlope;
     private Vector2 colliderSize;
 
-    public bool downhill;
-    public bool uphill;
+    private bool downhill;
+    private bool uphill;
 
-    public bool reset = false;
+    [SerializeField] private bool reset = false;
 
     [SerializeField] private float slopeCheckDistance;
 
-    public terrainGen TerrainGen;
+    [SerializeField] private terrainGen TerrainGen;
     private Vector3 splineReference; 
 
 
