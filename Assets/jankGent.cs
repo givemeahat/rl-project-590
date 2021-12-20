@@ -15,17 +15,17 @@ public class jankGent : Agent
     private Vector2 velocity;
     [SerializeField] private float episodeLength;
     [SerializeField] private float buffer; //arbitrary buffer added to min_xforce when deciding reward; buffer needed because min_xforce is often exceeded due to natural gravity
-    [SerializeField] private float timerCountDown; //// UI
+    [SerializeField] private float timerCountDown; 
     private bool timerOn;
-    private float reward; //// Display this on UI
+    private float reward; 
 
-    private bool diving; //// Display this on UI
+    private bool diving; 
 
-    public Text rewardUI;
-    public Text timerUI;
-    public Text divingUI;
-    public Text episodeLengthUI;
-    public Text speedUI; 
+    [SerializeField] private Text rewardUI;
+    [SerializeField] private Text timerUI;
+    [SerializeField] private Text divingUI;
+    [SerializeField] private Text episodeLengthUI;
+    [SerializeField] private Text speedUI; 
 
 
 

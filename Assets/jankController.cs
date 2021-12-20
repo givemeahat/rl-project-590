@@ -9,7 +9,7 @@ using System;
 public class jankController : MonoBehaviour
 {
     private Rigidbody2D m_Rigidbody2D;
-    public float min_xforce;
+
     [SerializeField] private float added_gravity;
     [SerializeField] private float original_gravity;
 
@@ -25,6 +25,8 @@ public class jankController : MonoBehaviour
 
     private bool downhill;
     private bool uphill;
+
+    public float min_xforce;
 
     [SerializeField] private bool reset = false;
 
@@ -144,7 +146,6 @@ public class jankController : MonoBehaviour
         slopeSideAngle = Vector2.Angle(slopeHitFront.normal, Vector2.up);
         Debug.DrawRay(slopeHitFront.point, slopeHitFront.normal, Color.green);
         slopeDeclare(slopeSideAngle);
-        // print("front side angle" + slopeSideAngle);
 
       }
 
@@ -153,7 +154,6 @@ public class jankController : MonoBehaviour
         slopeSideAngle = Vector2.Angle(slopeHitBack.normal, Vector2.up);
         Debug.DrawRay(slopeHitBack.point, slopeHitBack.normal, Color.blue);
         slopeDeclare(slopeSideAngle);
-        // print("back side angle" + slopeSideAngle);
       }
 
       else {
@@ -183,7 +183,6 @@ public class jankController : MonoBehaviour
       TerrainGen.generateTerrain();
       yield return new WaitUntil(isReady);
       SpawnPosition();
-      // Debug.Log("waht s goin on");
       m_Rigidbody2D.velocity = Vector3.zero;
     }
 
@@ -202,13 +201,6 @@ public class jankController : MonoBehaviour
         return false;
       }
     }
-
-
-//TODO: 1. implement reward/score (based on distance traveled or velocity? game ends after 30s?
-//       ***reward: limit time per episode, track distance? or limit distance per episode, track time?
-//       ***reward: velocity vector value (negative if going back) 0 reward if min velocity; -1 if slower; +1 if faster
-//TODO: 3. hard code feature or pass along raw frame?
-        // (1) velocity vector, (2) front slopes (10) (all visible in camera frame), (3) acceleration (4) vertical distance from ground
 
 
 }

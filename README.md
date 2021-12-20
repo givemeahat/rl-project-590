@@ -1,7 +1,10 @@
 # rl-project-590: RL Training with PPO on clone of Flying Squirrel
-<p align="center" width="100%">
+<!-- <p align="center" width="100%">
   <img width="30%" src="https://github.com/iigindesign/rl-project-590/blob/Dev/images/pre.png">
   <img width="30%" src="https://github.com/iigindesign/rl-project-590/blob/Dev/images/jank.gif">
+</p> -->
+<p align="center" width="100%">
+  <img width="80%" src="https://github.com/iigindesign/rl-project-590/blob/Dev/images/run26gif.gif">
 </p>
 
 Required setup to view/run trained models:
