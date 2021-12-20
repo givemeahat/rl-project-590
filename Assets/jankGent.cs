@@ -7,7 +7,6 @@ using System;
 using Unity.MLAgents.Actuators;
 using UnityEngine.UI;
 
-// TODO: regenerate terrain each time the episode restarts;
 public class jankGent : Agent
 {
     private Rigidbody2D m_Rigidbody2D;
@@ -15,11 +14,12 @@ public class jankGent : Agent
     private Vector2 velocity;
     [SerializeField] private float episodeLength;
     [SerializeField] private float buffer; //arbitrary buffer added to min_xforce when deciding reward; buffer needed because min_xforce is often exceeded due to natural gravity
-    [SerializeField] private float timerCountDown; 
+    private float timerCountDown; 
     private bool timerOn;
     private float reward; 
 
     private bool diving; 
+    private float speed;
 
     [SerializeField] private Text rewardUI;
     [SerializeField] private Text timerUI;
@@ -42,7 +42,7 @@ public class jankGent : Agent
         timerCountDown = episodeLength;
 
     }
-
+    
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
@@ -84,13 +84,10 @@ public class jankGent : Agent
             diving = false;
         }
     }
-
-
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         velocity = m_Rigidbody2D.velocity;
-        float speed = velocity.magnitude;
+        speed = velocity.magnitude;
         // if (velocity.x < controller.min_xforce + buffer){
         //     AddReward(-speed/10);
         // }
@@ -114,8 +111,11 @@ public class jankGent : Agent
                 EndEpisode();
             }
         }
-        displayStats(reward, timerCountDown, diving, speed);
 
+    }
+
+    private void Update() {
+        displayStats(reward, timerCountDown, diving, speed);
     }
 
     public void displayStats(float reward, float timer, bool diving, float speed){

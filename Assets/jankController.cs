@@ -37,18 +37,18 @@ public class jankController : MonoBehaviour
 
 
 
-    void Awake(){
+    private void Awake(){
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
 		    colliderSize = GetComponents<Collider2D>()[0].bounds.extents;
 
     }
-    void Start()
+    private void Start()
     {
       // SpawnPosition();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if(reset){
           // Reset();
@@ -76,7 +76,7 @@ public class jankController : MonoBehaviour
         m_Rigidbody2D.gravityScale = original_gravity;
     }
 
-    void FixedUpdate(){
+    private void FixedUpdate(){
         // m_Rigidbody2D.AddForce(new Vector2(min_xforce, min_yforce));
         // m_Rigidbody2D.velocity = transform.right * min_xforce;
         // if (m_Rigidbody2D.velocity[1] < min_xforce){
