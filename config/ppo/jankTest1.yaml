@@ -1,4 +1,4 @@
-behaviors:
+behaviors: 
   jankTest1:
     trainer_type: ppo
     hyperparameters:
