@@ -1,4 +1,4 @@
-# RL Training with PPO on NoWings
+# RL Training with PPO on NoWings using MLAgents
 
 <!-- <p align="center" width="100%">
   <img width="30%" src="https://github.com/iigindesign/rl-project-590/blob/Dev/images/pre.png">
