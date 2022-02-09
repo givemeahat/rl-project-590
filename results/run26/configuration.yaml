@@ -54,7 +54,7 @@ engine_settings:
   no_graphics: false
 environment_parameters: null
 checkpoint_settings:
-  run_id: '26'
+  run_id: run12
   initialize_from: null
   load_model: false
   resume: false

@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 537305867}
   - component: {fileID: 537305866}
   m_Layer: 0
-  m_Name: terrain test (1)
+  m_Name: terrain
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -747,6 +747,84 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &653041966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 653041967}
+  - component: {fileID: 653041969}
+  - component: {fileID: 653041968}
+  m_Layer: 5
+  m_Name: Speed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &653041967
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653041966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 728694797}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -139.5, y: -42.5}
+  m_SizeDelta: {x: -321, y: -285}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &653041968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653041966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Speed
+--- !u!222 &653041969
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653041966}
+  m_CullTransparentMesh: 0
 --- !u!1 &728694793
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,6 +919,7 @@ RectTransform:
   - {fileID: 2119825104}
   - {fileID: 1793780147}
   - {fileID: 1312920325}
+  - {fileID: 653041967}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1815,10 +1894,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c593eed32f8044ca849c7434992350e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  min_xforce: 10
   added_gravity: 25
   original_gravity: 1
   airDrag: 0
+  min_xforce: 10
   reset: 0
   slopeCheckDistance: 1
   TerrainGen: {fileID: 537305866}
@@ -1862,10 +1941,11 @@ MonoBehaviour:
   controller: {fileID: 1970087440}
   episodeLength: 40
   buffer: 10
-  timerCountDown: 0
   rewardUI: {fileID: 336054844}
   timerUI: {fileID: 1793780148}
   divingUI: {fileID: 2119825105}
+  episodeLengthUI: {fileID: 1312920326}
+  speedUI: {fileID: 653041968}
 --- !u!4 &1970087443
 Transform:
   m_ObjectHideFlags: 0

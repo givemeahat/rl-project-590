@@ -2,58 +2,58 @@
     "jankTest1": {
         "checkpoints": [
             {
-                "steps": 3499965,
-                "file_path": "results\\26\\jankTest1\\jankTest1-3499965.onnx",
-                "reward": 241.31394624710083,
-                "creation_time": 1638344136.6985798,
+                "steps": 499965,
+                "file_path": "results\\run12\\jankTest1\\jankTest1-499965.onnx",
+                "reward": 35.782093339761076,
+                "creation_time": 1638266610.0147479,
                 "auxillary_file_paths": [
-                    "results\\26\\jankTest1\\jankTest1-3499965.pt"
+                    "results\\run12\\jankTest1\\jankTest1-499965.pt"
                 ]
             },
             {
-                "steps": 3999965,
-                "file_path": "results\\26\\jankTest1\\jankTest1-3999965.onnx",
-                "reward": 218.48171965032816,
-                "creation_time": 1638350557.7275136,
+                "steps": 999965,
+                "file_path": "results\\run12\\jankTest1\\jankTest1-999965.onnx",
+                "reward": 61.82883708924055,
+                "creation_time": 1638271042.3756425,
                 "auxillary_file_paths": [
-                    "results\\26\\jankTest1\\jankTest1-3999965.pt"
+                    "results\\run12\\jankTest1\\jankTest1-999965.pt"
                 ]
             },
             {
-                "steps": 4499965,
-                "file_path": "results\\26\\jankTest1\\jankTest1-4499965.onnx",
-                "reward": 230.36501697264612,
-                "creation_time": 1638357288.7506433,
+                "steps": 1499965,
+                "file_path": "results\\run12\\jankTest1\\jankTest1-1499965.onnx",
+                "reward": 11.846568609587848,
+                "creation_time": 1638275504.0738358,
                 "auxillary_file_paths": [
-                    "results\\26\\jankTest1\\jankTest1-4499965.pt"
+                    "results\\run12\\jankTest1\\jankTest1-1499965.pt"
                 ]
             },
             {
-                "steps": 4999966,
-                "file_path": "results\\26\\jankTest1\\jankTest1-4999966.onnx",
-                "reward": null,
-                "creation_time": 1638364232.3765533,
+                "steps": 1999965,
+                "file_path": "results\\run12\\jankTest1\\jankTest1-1999965.onnx",
+                "reward": 3.0426773535778993,
+                "creation_time": 1638280105.1111505,
                 "auxillary_file_paths": [
-                    "results\\26\\jankTest1\\jankTest1-4999966.pt"
+                    "results\\run12\\jankTest1\\jankTest1-1999965.pt"
                 ]
             },
             {
-                "steps": 5000001,
-                "file_path": "results\\26\\jankTest1\\jankTest1-5000001.onnx",
-                "reward": 218.38768691942096,
-                "creation_time": 1638364232.4960556,
+                "steps": 2359870,
+                "file_path": "results\\run12\\jankTest1\\jankTest1-2359870.onnx",
+                "reward": 66.06350208913344,
+                "creation_time": 1638283356.6502402,
                 "auxillary_file_paths": [
-                    "results\\26\\jankTest1\\jankTest1-5000001.pt"
+                    "results\\run12\\jankTest1\\jankTest1-2359870.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 5000001,
-            "file_path": "results\\26\\jankTest1.onnx",
-            "reward": 218.38768691942096,
-            "creation_time": 1638364232.4960556,
+            "steps": 2359870,
+            "file_path": "results\\run12\\jankTest1.onnx",
+            "reward": 66.06350208913344,
+            "creation_time": 1638283356.6502402,
             "auxillary_file_paths": [
-                "results\\26\\jankTest1\\jankTest1-5000001.pt"
+                "results\\run12\\jankTest1\\jankTest1-2359870.pt"
             ]
         }
     },

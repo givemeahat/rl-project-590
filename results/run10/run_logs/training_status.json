@@ -1,0 +1,65 @@
+{
+    "jankTest1": {
+        "checkpoints": [
+            {
+                "steps": 3499965,
+                "file_path": "results\\26\\jankTest1\\jankTest1-3499965.onnx",
+                "reward": 241.31394624710083,
+                "creation_time": 1638344136.6985798,
+                "auxillary_file_paths": [
+                    "results\\26\\jankTest1\\jankTest1-3499965.pt"
+                ]
+            },
+            {
+                "steps": 3999965,
+                "file_path": "results\\26\\jankTest1\\jankTest1-3999965.onnx",
+                "reward": 218.48171965032816,
+                "creation_time": 1638350557.7275136,
+                "auxillary_file_paths": [
+                    "results\\26\\jankTest1\\jankTest1-3999965.pt"
+                ]
+            },
+            {
+                "steps": 4499965,
+                "file_path": "results\\26\\jankTest1\\jankTest1-4499965.onnx",
+                "reward": 230.36501697264612,
+                "creation_time": 1638357288.7506433,
+                "auxillary_file_paths": [
+                    "results\\26\\jankTest1\\jankTest1-4499965.pt"
+                ]
+            },
+            {
+                "steps": 4999966,
+                "file_path": "results\\26\\jankTest1\\jankTest1-4999966.onnx",
+                "reward": null,
+                "creation_time": 1638364232.3765533,
+                "auxillary_file_paths": [
+                    "results\\26\\jankTest1\\jankTest1-4999966.pt"
+                ]
+            },
+            {
+                "steps": 5000001,
+                "file_path": "results\\26\\jankTest1\\jankTest1-5000001.onnx",
+                "reward": 218.38768691942096,
+                "creation_time": 1638364232.4960556,
+                "auxillary_file_paths": [
+                    "results\\26\\jankTest1\\jankTest1-5000001.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 5000001,
+            "file_path": "results\\26\\jankTest1.onnx",
+            "reward": 218.38768691942096,
+            "creation_time": 1638364232.4960556,
+            "auxillary_file_paths": [
+                "results\\26\\jankTest1\\jankTest1-5000001.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "1.7.0+cu110"
+    }
+}
