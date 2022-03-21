@@ -65,6 +65,12 @@ public class jankGent : Agent
         if(Input.GetButtonUp("Dive")){
             discreteActions[0] = 2;
         }
+        if(Input.GetButtonDown("Right")){
+            discreteActions[0] = 3;
+        }
+        if(Input.GetButtonDown("Up")){
+            discreteActions[0] = 4;
+        }
 
         // Debug.Log("passing" + discreteActions[0]);
 
@@ -74,14 +80,30 @@ public class jankGent : Agent
     {
         int dive = actions.DiscreteActions[0];
         // Debug.Log("received" + dive);
-        if (dive == 1){
-            controller.dive();
-            diving = true;
+        // if (dive == 1){
+        //     controller.dive();
+        //     diving = true;
 
-        }
-        if (dive == 2){
-            controller.diveFalse();
-            diving = false;
+        // }
+        // if (dive == 2){
+        //     controller.diveFalse();
+        //     diving = false;
+        // }
+        switch (dive){
+            case 1:
+                controller.dive();
+                diving = true;
+                break;
+            case 2:
+                controller.diveFalse();
+                diving = false;
+                break;
+            case 3:
+                controller.jetPack();
+                break;
+            case 4:
+                controller.hop();
+                break;
         }
     }
     private void FixedUpdate()

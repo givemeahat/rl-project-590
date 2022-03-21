@@ -3,25 +3,35 @@ using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 using System;
-
-
+using UnityEngine.UI;
 
 public class jankController : MonoBehaviour
 {
     private Rigidbody2D m_Rigidbody2D;
 
-    [SerializeField] private float added_gravity;
-    [SerializeField] private float original_gravity;
+    [SerializeField] private float addedGravity;
+    [SerializeField] private float originalGravity;
 
-    [SerializeField] private float airDrag;
+    [SerializeField] private float addedAirDrag;
 
     private bool grounded;
+    private ContactPoint2D contact;
+    private Vector2 addedForce;
 
     private float slopeDownAngle;
-    private Vector2 slopeNormalPerpendicular;
-    private float slopeSideAngle;
-    private bool isOnSlope;
+    private Vector2 slopeDown;
+    // private float slopeSideAngle;
+    private Vector2 contactSlope;
+    internal float contactSlopeAngle;
+    private float slope;
+
+    // private bool isOnSlope;
     private Vector2 colliderSize;
+    public float timeSinceHop;
+    public float timeSinceJet;
+    public float hopCoolDown;
+    public float jetCoolDown;
+
 
     private bool downhill;
     private bool uphill;
@@ -30,7 +40,7 @@ public class jankController : MonoBehaviour
 
     [SerializeField] private bool reset = false;
 
-    [SerializeField] private float slopeCheckDistance;
+    // [SerializeField] private float slopeCheckDistance;
 
     [SerializeField] private terrainGen TerrainGen;
     private Vector3 splineReference; 
@@ -45,6 +55,8 @@ public class jankController : MonoBehaviour
     private void Start()
     {
       // SpawnPosition();
+      timeSinceHop = hopCoolDown;
+      timeSinceJet = jetCoolDown;
     }
 
     // Update is called once per frame
@@ -63,17 +75,48 @@ public class jankController : MonoBehaviour
         //   diveFalse();
         // }
 
-        SlopeCheck();
+        // SlopeCheck();
 
-
+        if(timeSinceHop < hopCoolDown){
+          timeSinceHop += Time.deltaTime;
+        }
+        if(timeSinceJet < jetCoolDown){
+          timeSinceJet += Time.deltaTime;
+        }
     }
 
     public void dive(){
-        m_Rigidbody2D.gravityScale = added_gravity;
+        // if(uphill && grounded){
+        //   return;
+        // }
+        m_Rigidbody2D.gravityScale = addedGravity;
     }
 
     public void diveFalse(){
-        m_Rigidbody2D.gravityScale = original_gravity;
+        m_Rigidbody2D.gravityScale = originalGravity;
+    }
+
+    public void jetPack(){
+      if(timeSinceJet < jetCoolDown){
+        return;
+      }
+      addedForce = new Vector2(300f, 0f);
+      // addedForce = new Vector2(min_xforce * contactSlope.x * -1f, min_xforce * contactSlope.y * -1f);
+
+      m_Rigidbody2D.AddForce(addedForce);
+      timeSinceJet = 0f; //reset timer
+      Debug.Log("jet");
+    }
+    public void hop(){
+      if(timeSinceHop < hopCoolDown){
+        return;
+      }
+      addedForce = new Vector2(0f, 300f);
+      // addedForce = new Vector2(min_xforce * contactSlope.x * -1f, min_xforce * contactSlope.y * -1f);
+
+      m_Rigidbody2D.AddForce(addedForce);
+      timeSinceHop = 0f; //reset timer
+      Debug.Log("hop");
     }
 
     private void FixedUpdate(){
@@ -83,18 +126,32 @@ public class jankController : MonoBehaviour
         //   m_Rigidbody2D.velocity = new Vector2(min_xforce, min_yforce);
         //}
         if(!grounded){
-          m_Rigidbody2D.drag = airDrag;
+          SlopeCheckDown();
+          m_Rigidbody2D.drag = addedAirDrag;
         }
         if(grounded){
-          m_Rigidbody2D.AddForce(new Vector2(min_xforce , 0));
+          m_Rigidbody2D.drag = 0f;
+
+          // m_Rigidbody2D.AddForce(new Vector2(min_xforce , 0));
+          Debug.DrawRay(transform.position, contactSlope, Color.green);
           // m_Rigidbody2D.drag = 0;
         }
+        slopeDeclare();
         if(grounded && uphill){
           // m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x + min_xforce * slopeNormalPerpendicular.x * -1f, m_Rigidbody2D.velocity.y+ min_xforce*slopeNormalPerpendicular.y * -1f);
           
-          m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * slopeNormalPerpendicular.y * -1f)));
+          // m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * contactSlope.y * -1f)));
           // Debug.Log("should do something");
           // Debug.Log(m_Rigidbody2D.velocity);
+
+          addedForce = new Vector2(min_xforce * contactSlope.x * -1f, 9.8f);
+          // addedForce = new Vector2(min_xforce * contactSlope.x * -1f, min_xforce * contactSlope.y * -1f);
+
+          m_Rigidbody2D.AddForce(addedForce);
+        }
+        if(grounded && downhill){
+          addedForce = new Vector2(min_xforce * contactSlope.x * -1f , 0);
+          m_Rigidbody2D.AddForce(addedForce);
         }
         // if(grounded && !uphill && !downhill){
         //   m_Rigidbody2D.AddForce(new Vector2(min_xforce, 0));
@@ -113,71 +170,98 @@ public class jankController : MonoBehaviour
         // Debug.Log(transform.position);
     }
     void OnCollisionEnter2D(Collision2D col){
-      
         grounded = true;
+        // contact = col.GetContact(0);
+        // contactSlope = Vector2.Perpendicular(contact.normal).normalized;
+        // contactSlopeAngle = 
         //Check for slope, if on slope, need to add a vertical velocity perpendicular to slope to prevent it from falling down
+    }
+      void OnCollisionStay2D(Collision2D col)
+    {
+        slope = ContactSlopeAngle(col);
+        //Check for slope, if on slope, need to add a vertical velocity perpendicular to slope to prevent it from falling down
+    }
+
+    private float ContactSlopeAngle(Collision2D col)
+    {
+        contact = col.GetContact(0);
+        contactSlope = Vector2.Perpendicular(contact.normal).normalized;
+        contactSlopeAngle = Vector2.Angle(Vector2.up, contactSlope);
+        return contactSlopeAngle;
     }
 
     void OnCollisionExit2D(Collision2D col){
         grounded = false;
     }
 
-    private void slopeDeclare(float slopeSideAngle){
-      if(slopeNormalPerpendicular.y <= 0){
+    private void slopeDeclare(){
+      if(slope > 180f){
+        Debug.Log("something's wrong with the slope");
+      }
+      if(slope > 90f){
         uphill = true;
         downhill = false;
-      } else if (slopeNormalPerpendicular.y > 0){
+      } else if (slope < 90f){
         uphill = false;
         downhill = true;
       }
     }
-    private void SlopeCheck() {
-      Vector2 checkPos = transform.position - (Vector3)(new Vector2(0.0f, colliderSize.y));
-      SlopeCheckHorizontal(checkPos);
-      SlopeCheckVertical(checkPos);
-    }
+    // private void SlopeCheck() {
+    //   // Vector2 checkPos = transform.position - (Vector3)(new Vector2(0.0f, colliderSize.y)); //point at ground level
+    //   Vector2 checkPos = transform.position;
+    //   // SlopeCheckHorizontal(checkPos);
+    //   SlopeCheckDown();
+    // }
 
-    private void SlopeCheckHorizontal(Vector2 checkPos) {
-      RaycastHit2D slopeHitFront = Physics2D.Raycast(checkPos, transform.right, slopeCheckDistance);
-      RaycastHit2D slopeHitBack = Physics2D.Raycast(checkPos, - transform.right, 0.5f);
+    // private void SlopeCheckHorizontal(Vector2 checkPos) {
+    //   // RaycastHit2D slopeHitFront = Physics2D.Raycast(checkPos, transform.right, slopeCheckDistance);
+    //   RaycastHit2D slopeHitFront = Physics2D.Raycast(checkPos, Vector2.right, colliderSize.y);
+    //   RaycastHit2D slopeHitBack = Physics2D.Raycast(checkPos, Vector2.left , colliderSize.y);
 
-      if (slopeHitFront) {
-        isOnSlope = true;
-        slopeSideAngle = Vector2.Angle(slopeHitFront.normal, Vector2.up);
-        Debug.DrawRay(slopeHitFront.point, slopeHitFront.normal, Color.green);
-        slopeDeclare(slopeSideAngle);
+    //   if (slopeHitFront) {
+    //     // isOnSlope = true;
+    //     slopeSideAngle = Vector2.Angle(slopeHitFront.normal, Vector2.up);
+    //     Debug.DrawRay(slopeHitFront.point, slopeHitFront.normal, Color.green);
+    //     slopeDeclare(slopeSideAngle);
 
-      }
+    //   }
 
-      else if (slopeHitBack) {
-        isOnSlope = true;
-        slopeSideAngle = Vector2.Angle(slopeHitBack.normal, Vector2.up);
-        Debug.DrawRay(slopeHitBack.point, slopeHitBack.normal, Color.blue);
-        slopeDeclare(slopeSideAngle);
-      }
+    //   else if (slopeHitBack) {
+    //     // isOnSlope = true;
+    //     slopeSideAngle = Vector2.Angle(slopeHitBack.normal, Vector2.up);
+    //     Debug.DrawRay(slopeHitBack.point, slopeHitBack.normal, Color.blue);
+    //     slopeDeclare(slopeSideAngle);
+    //   }
 
-      else {
-        isOnSlope = false;
-        slopeSideAngle = 0.0f;
-      }
-    }
+    //   else {
+    //     // isOnSlope = false;
+    //     slopeSideAngle = 0.0f;
+    //   }
+    // }
 
-    private void SlopeCheckVertical(Vector2 checkPos) {
-      RaycastHit2D hit = Physics2D.Raycast(checkPos, Vector2.down, slopeCheckDistance);
+    private void SlopeCheckDown() {
+      Vector2 checkPos = transform.position - new Vector3(0.0f, colliderSize.y + 0.1f,0.0f);
+      RaycastHit2D hit = Physics2D.Raycast(checkPos, Vector2.down, Mathf.Infinity);
 
       if (hit) {
-        slopeNormalPerpendicular = Vector2.Perpendicular(hit.normal).normalized; //points to left of ground
-        slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up); //angle between y-axis and normal (same as angle between x-axis and slope)
+        slopeDown = Vector2.Perpendicular(hit.normal).normalized; //vector normal to the hit normal, this is the slope when raycasting down
+        slopeDownAngle = Vector2.Angle(slopeDown, Vector2.up); //angle between y-axis and normal (same as angle between x-axis and slope)
+        slope = slopeDownAngle;
+        // if (slopeDownAngle != 0.0f) {
+        //   isOnSlope = true;
+        // }
 
-        if (slopeDownAngle != 0.0f) {
-          isOnSlope = true;
-        }
-
-        Debug.DrawRay(hit.point, hit.normal, Color.white);
-        Debug.DrawRay(hit.point, slopeNormalPerpendicular, Color.red);
+        // Debug.DrawRay(hit.point, hit.normal, Color.white);
+        // Debug.DrawRay(checkPos, Vector2.down, Color.white);
 
       }
     }
+    void OnDrawGizmosSelected()
+    {
+      Gizmos.color = Color.red;
+      Gizmos.DrawRay(transform.position, slopeDown);
+    }
+
 
     public IEnumerator Reset(){
       TerrainGen.generateTerrain();
