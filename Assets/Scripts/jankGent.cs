@@ -59,12 +59,14 @@ public class jankGent : Agent
         0. do nothing (retains gravity)
 
         */
-        if(Input.GetButtonDown("Dive")){
+        if(Input.GetButton("Dive")){
             discreteActions[0] = 1;
-        }
-        if(Input.GetButtonUp("Dive")){
+        } else {
             discreteActions[0] = 2;
         }
+        // if(Input.GetButtonUp("Dive")){
+        //     discreteActions[0] = 2;
+        // }
         if(Input.GetButtonDown("Right")){
             discreteActions[0] = 3;
         }
