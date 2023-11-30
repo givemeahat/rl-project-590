@@ -77,11 +77,6 @@ public class jankController : MonoBehaviour
     }
 
     private void FixedUpdate(){
-        // m_Rigidbody2D.AddForce(new Vector2(min_xforce, min_yforce));
-        // m_Rigidbody2D.velocity = transform.right * min_xforce;
-        // if (m_Rigidbody2D.velocity[1] < min_xforce){
-        //   m_Rigidbody2D.velocity = new Vector2(min_xforce, min_yforce);
-        //}
         if(!grounded){
           m_Rigidbody2D.drag = airDrag;
         }
@@ -92,7 +87,7 @@ public class jankController : MonoBehaviour
                 m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * slopeNormalPerpendicular.y * -1f * 10000f)));
                 Debug.Log("Going Up");
             }
-          // m_Rigidbody2D.drag = 0;
+          m_Rigidbody2D.drag = 0;
         }
         /*if(grounded && uphill){
             // m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x + min_xforce * slopeNormalPerpendicular.x * -1f, m_Rigidbody2D.velocity.y+ min_xforce*slopeNormalPerpendicular.y * -1f);
