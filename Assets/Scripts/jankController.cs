@@ -56,12 +56,12 @@ public class jankController : MonoBehaviour
           reset = false;
         }
         //Jank is now controllable by keyboard input in jankgent
-        // if(Input.GetButtonDown("Dive")){
-        //   dive();
-        // }
-        // if(Input.GetButtonUp("Dive")){
-        //   diveFalse();
-        // }
+        if(Input.GetButtonDown("Dive")){
+           dive();
+        }
+        if(Input.GetButtonUp("Dive")){
+            diveFalse();
+        }
 
         SlopeCheck();
 
@@ -87,15 +87,20 @@ public class jankController : MonoBehaviour
         }
         if(grounded){
           m_Rigidbody2D.AddForce(new Vector2(min_xforce , 0));
+            if (uphill)
+            {
+                m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * slopeNormalPerpendicular.y * -1f * 10000f)));
+                Debug.Log("Going Up");
+            }
           // m_Rigidbody2D.drag = 0;
         }
-        if(grounded && uphill){
-          // m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x + min_xforce * slopeNormalPerpendicular.x * -1f, m_Rigidbody2D.velocity.y+ min_xforce*slopeNormalPerpendicular.y * -1f);
-          
-          m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * slopeNormalPerpendicular.y * -1f)));
-          // Debug.Log("should do something");
+        /*if(grounded && uphill){
+            // m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x + min_xforce * slopeNormalPerpendicular.x * -1f, m_Rigidbody2D.velocity.y+ min_xforce*slopeNormalPerpendicular.y * -1f);
+            //m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * slopeNormalPerpendicular.y * -1f)));
+            m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * slopeNormalPerpendicular.y * -1f * 100f)));
+            Debug.Log("Going Up");
           // Debug.Log(m_Rigidbody2D.velocity);
-        }
+        }*/
         // if(grounded && !uphill && !downhill){
         //   m_Rigidbody2D.AddForce(new Vector2(min_xforce, 0));
         // }

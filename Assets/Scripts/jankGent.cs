@@ -70,7 +70,7 @@ public class jankGent : Agent
 
     }
 
-    public override void OnActionReceived(ActionBuffers actions)
+    /*public override void OnActionReceived(ActionBuffers actions)
     {
         int dive = actions.DiscreteActions[0];
         // Debug.Log("received" + dive);
@@ -83,7 +83,7 @@ public class jankGent : Agent
             controller.diveFalse();
             diving = false;
         }
-    }
+    }*/
     private void FixedUpdate()
     {
         velocity = m_Rigidbody2D.velocity;
