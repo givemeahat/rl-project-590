@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Brightness
   m_EditorClassIdentifier: 
   m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity
-    Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=18703\n0;0;1920;1019;1015;461.5;1;True;True\nNode;AmplifyShaderEditor.FunctionInput;1;-516,-104.5;Inherit;False;In
-    Color;4;0;False;1;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0\nNode;AmplifyShaderEditor.BreakToComponentsNode;2;-319,-100.5;Inherit;False;FLOAT4;1;0;FLOAT4;0,0,0,0;False;16;FLOAT;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT;5;FLOAT;6;FLOAT;7;FLOAT;8;FLOAT;9;FLOAT;10;FLOAT;11;FLOAT;12;FLOAT;13;FLOAT;14;FLOAT;15\nNode;AmplifyShaderEditor.SimpleAddOpNode;3;-146,-97.5;Inherit;False;3;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;5;-98,78.5;Inherit;False;Constant;_Float0;Float
-    0;0;0;Create;True;0;0;False;0;False;3;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;4;71,-3.5;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionOutput;0;261,-105;Inherit;False;True;-1;Brightness;0;True;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;2;0;1;0\nWireConnection;3;0;2;0\nWireConnection;3;1;2;1\nWireConnection;3;2;2;2\nWireConnection;4;0;3;0\nWireConnection;4;1;5;0\nWireConnection;0;0;4;0\nASEEND*/\n//CHKSM=84C64C87A6DDC5D439803272020C0DA7AD651530"
+    Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=18935\n252;437;1803;942;1152.5;454;1;True;False\nNode;AmplifyShaderEditor.RangedFloatNode;5;-98,78.5;Inherit;False;Constant;_Float0;Float
+    0;0;0;Create;True;0;0;0;False;0;False;6;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;4;71,-3.5;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;1;-659,-115.5;Inherit;False;In
+    Color;4;0;False;1;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0\nNode;AmplifyShaderEditor.BreakToComponentsNode;2;-480,-108.5;Inherit;False;FLOAT4;1;0;FLOAT4;0,0,0,0;False;16;FLOAT;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT;5;FLOAT;6;FLOAT;7;FLOAT;8;FLOAT;9;FLOAT;10;FLOAT;11;FLOAT;12;FLOAT;13;FLOAT;14;FLOAT;15\nNode;AmplifyShaderEditor.SimpleAddOpNode;3;-158,-114.5;Inherit;False;6;6;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionOutput;0;261,-105;Inherit;False;True;-1;Brightness;0;True;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;4;0;3;0\nWireConnection;4;1;5;0\nWireConnection;2;0;1;0\nWireConnection;3;0;2;0\nWireConnection;3;1;2;0\nWireConnection;3;2;2;1\nWireConnection;3;3;2;1\nWireConnection;3;4;2;1\nWireConnection;3;5;2;2\nWireConnection;0;0;4;0\nASEEND*/\n//CHKSM=9D7F9704E11EA3BF9D7C6A1E6C646EB74BE08F31"
   m_functionName: 
   m_description: 
   m_additionalIncludes:
@@ -29,6 +29,7 @@ MonoBehaviour:
     m_isDirty: 0
     m_moduleName: ' Additional Directives'
     m_independentModule: 1
+    m_customEdited: 0
     m_additionalDirectives: []
     m_shaderFunctionDirectives: []
     m_nativeDirectives: []
@@ -39,3 +40,4 @@ MonoBehaviour:
   m_customNodeCategory: 
   m_previewPosition: 0
   m_hidden: 0
+  m_url: 

@@ -16,7 +16,7 @@ public class jankGent : Agent
     [SerializeField] private float buffer; //arbitrary buffer added to min_xforce when deciding reward; buffer needed because min_xforce is often exceeded due to natural gravity
     private float timerCountDown; 
     private bool timerOn;
-    private float reward; 
+    public float reward; 
 
     private bool diving; 
     private float speed;
@@ -86,11 +86,12 @@ public class jankGent : Agent
     }*/
     private void FixedUpdate()
     {
-        velocity = m_Rigidbody2D.velocity;
+        /*velocity = m_Rigidbody2D.velocity;
         speed = velocity.magnitude;
-        // if (velocity.x < controller.min_xforce + buffer){
-        //     AddReward(-speed/10);
-        // }
+        Debug.Log(speed);
+        if (velocity.x < controller.min_xforce + buffer){
+             AddReward(-speed/10);
+        }
         if (velocity.x == 0){
             AddReward(-.05f);
         }
@@ -101,6 +102,7 @@ public class jankGent : Agent
             AddReward(speed/100);
         }
         reward = GetCumulativeReward();
+        */
 
         if(timerOn){
             if(timerCountDown > 0){
