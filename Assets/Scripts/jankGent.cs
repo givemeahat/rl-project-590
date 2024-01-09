@@ -6,6 +6,7 @@ using Unity.MLAgents.Sensors;
 using System;
 using Unity.MLAgents.Actuators;
 using UnityEngine.UI;
+using TMPro;
 
 public class jankGent : Agent
 {
@@ -21,8 +22,8 @@ public class jankGent : Agent
     private bool diving; 
     private float speed;
 
-    [SerializeField] private Text rewardUI;
-    [SerializeField] private Text timerUI;
+    [SerializeField] private TMP_Text rewardUI;
+    [SerializeField] private TMP_Text timerUI;
     [SerializeField] private Text divingUI;
     [SerializeField] private Text episodeLengthUI;
     [SerializeField] private Text speedUI; 
@@ -104,6 +105,7 @@ public class jankGent : Agent
         reward = GetCumulativeReward();
         */
 
+        reward += 10;
         if(timerOn){
             if(timerCountDown > 0){
                 timerCountDown -= Time.deltaTime;
@@ -121,8 +123,8 @@ public class jankGent : Agent
     }
 
     public void displayStats(float reward, float timer, bool diving, float speed){
-        rewardUI.text = "Reward: "+ System.Math.Round(reward,2);
-        timerUI.text = "Time Left: "+ System.Math.Round(timer,2) + "s";
+        rewardUI.text = "Score: "+ System.Math.Round(reward);
+        timerUI.text = "Time Left: "+ System.Math.Round(timer) + "s";
         divingUI.text = "Diving: "+ diving;
         episodeLengthUI.text = "Episode Length: "+ episodeLength + "s";
         speedUI.text = "Speed: "+ speed;
