@@ -10,6 +10,7 @@ using TMPro;
 
 public class jankGent : Agent
 {
+    private GM gameManager;
     private Rigidbody2D m_Rigidbody2D;
     [SerializeField] private jankController controller;
     private Vector2 velocity;
@@ -17,12 +18,13 @@ public class jankGent : Agent
     [SerializeField] private float buffer; //arbitrary buffer added to min_xforce when deciding reward; buffer needed because min_xforce is often exceeded due to natural gravity
     private float timerCountDown; 
     private bool timerOn;
-    public float reward; 
+    public float reward;
 
     private bool diving; 
     private float speed;
 
     [SerializeField] private TMP_Text rewardUI;
+    [SerializeField] private TMP_Text menuRewardUI;
     [SerializeField] private TMP_Text timerUI;
     [SerializeField] private Text divingUI;
     [SerializeField] private Text episodeLengthUI;
@@ -32,6 +34,7 @@ public class jankGent : Agent
 
     public override void Initialize()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -124,6 +127,7 @@ public class jankGent : Agent
 
     public void displayStats(float reward, float timer, bool diving, float speed){
         rewardUI.text = "Score: "+ System.Math.Round(reward);
+        menuRewardUI.text = "" + System.Math.Round(reward);
         timerUI.text = "Time Left: "+ System.Math.Round(timer) + "s";
         divingUI.text = "Diving: "+ diving;
         episodeLengthUI.text = "Episode Length: "+ episodeLength + "s";

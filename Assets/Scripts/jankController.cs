@@ -124,8 +124,8 @@ public class jankController : MonoBehaviour
           m_Rigidbody2D.AddForce(new Vector2(min_xforce, 0));
             if (uphill)
             {
-                m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * -1f * 10000f)));
-                //m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * slopeNormalPerpendicular.y * -1f * 10000f)));
+                //m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * -1f * 10000f)));
+                m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * slopeNormalPerpendicular.y * -1f * 10000f)));
                 Debug.Log("Going Up");
             }
           //m_Rigidbody2D.drag = 0;
