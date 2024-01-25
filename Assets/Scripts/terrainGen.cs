@@ -20,7 +20,7 @@ public class terrainGen : MonoBehaviour
     private float distanceBetweenPoints;
 
 
-    void Start()
+    void Awake()
     {
         shape = GetComponent<SpriteShapeController>();
         distanceBetweenPoints = (float)scale/pointCount;
@@ -39,29 +39,72 @@ public class terrainGen : MonoBehaviour
         //initalize all the points we want to add
         for(int i = 0; i<pointCount; i++){
           float xPos = shape.spline.GetPosition(i+1).x + distanceBetweenPoints;
-          shape.spline.InsertPointAt(i+2, new Vector3(xPos, shape.spline.GetPosition(1).y,0));
+            if (i == pointCount - 2 || i == pointCount - 1)
+            {
+                xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints + 10;
+            }
+            shape.spline.InsertPointAt(i+2, new Vector3(xPos, shape.spline.GetPosition(1).y,0));
         }
     }
   
     /* This function randomly resets the terrain!
     */
     public void generateTerrain(){
-        for (int i = 0; i < pointCount; i++){ //adding a total of pointCount points to the middle of the 4 existing points
+        for (int i = 0; i < pointCount; i++){ //adding a total of pointCount points to the middle of the 4 existing points\
+
           float xPos = shape.spline.GetPosition(i+1).x + distanceBetweenPoints; 
           float yPos = 10 * Mathf.PerlinNoise(i*UnityEngine.Random.Range(randomLow, randomHigh),0);
+            if (i < pointCount - 3 && i > pointCount - 13)
+            {
+                if (i%2 == 0)
+                {
+                    xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints - 2;
+                    yPos = 0;
+                }
+                else
+                {
+                    xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints - 2;
+                    yPos = 2f;
+                }
+            }
+            if (i == pointCount - 3)
+            {
+                xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints;
+                yPos = 4;
+            }
+            if (i == pointCount - 2)
+            {
+                xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints + 10;
+                yPos = 0;
+            }
+            if (i == pointCount - 1)
+            {
+                xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints + 10;
+                yPos = 6;
+            }
 
-          float pYPos = shape.spline.GetPosition(i+1).y;
+            float pYPos = shape.spline.GetPosition(i+1).y;
           //makes sure there's no "flat" hills
           if (Mathf.Abs(pYPos - yPos) < minHeightDifference){
             heightRange =  minHeightDifference;
           }
 
-          if (i%2 == 0){
-            shape.spline.SetPosition(i+2, new Vector3(xPos, yPos + heightRange, 0));
-          }
-          else{
-            shape.spline.SetPosition(i+2, new Vector3(xPos, yPos - heightRange, 0));
-          }
+          if (i < pointCount - 13)
+            {
+                if (i % 2 == 0)
+                {
+                    shape.spline.SetPosition(i + 2, new Vector3(xPos, yPos + heightRange, 0));
+                }
+                else
+                {
+                    shape.spline.SetPosition(i + 2, new Vector3(xPos, yPos - heightRange, 0));
+                }
+            }
+            else
+            {
+                shape.spline.SetPosition(i + 2, new Vector3(xPos, yPos, 0));
+            }
+
         }
 
         for (int i = 0; i < pointCount; i++){

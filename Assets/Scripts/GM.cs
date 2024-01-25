@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class GM : MonoBehaviour
 {
+    public GameObject gameOverScreen;
     public GameObject pauseScreen;
     public bool isPaused = false;
     public TMP_Text menuScoreText;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -28,8 +30,9 @@ public class GM : MonoBehaviour
 
     public void EndGame()
     {
-        Debug.Log("Game Joever");
-        PauseToggle();
+        Time.timeScale = 0;
+        isPaused = true;
+        gameOverScreen.SetActive(true);
     }
 
     public void PauseToggle()
