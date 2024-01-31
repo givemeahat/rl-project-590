@@ -19,6 +19,8 @@ public class terrainGen : MonoBehaviour
     private float randomHigh = 15;
     private float distanceBetweenPoints;
 
+    public Foliage.Foliage2D_Path fPath;
+
 
     void Awake()
     {
@@ -94,15 +96,18 @@ public class terrainGen : MonoBehaviour
                 if (i % 2 == 0)
                 {
                     shape.spline.SetPosition(i + 2, new Vector3(xPos, yPos + heightRange, 0));
+                    fPath.AddPathPoint(new Vector2(xPos, yPos + heightRange));
                 }
                 else
                 {
                     shape.spline.SetPosition(i + 2, new Vector3(xPos, yPos - heightRange, 0));
+                    fPath.AddPathPoint(new Vector2(xPos, yPos - heightRange));
                 }
             }
             else
             {
                 shape.spline.SetPosition(i + 2, new Vector3(xPos, yPos, 0));
+                fPath.AddPathPoint(new Vector2(xPos, yPos));
             }
 
         }
@@ -111,6 +116,10 @@ public class terrainGen : MonoBehaviour
           shape.spline.SetTangentMode(i+2,ShapeTangentMode.Continuous);
           shape.spline.SetLeftTangent(i+2,new Vector3(-2,0,0));
           shape.spline.SetRightTangent(i+2,new Vector3(2,0,0));
+            if (i == pointCount - 1)
+            {
+                fPath.RecreateFoliage();
+            }
         }
     }
 
