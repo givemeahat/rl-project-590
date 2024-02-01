@@ -44,6 +44,7 @@ public class jankController : MonoBehaviour
     public float multiplier = 1;
 
     public GameObject nyoomText;
+    public Foliage.Foliage2D_Path fPath;
 
 
     private void Awake(){
@@ -148,8 +149,8 @@ public class jankController : MonoBehaviour
     //SpawnPosition transforms the jank location to a little bit above the spline point number #150; since 150 is even, it should always start at the tip of the hill
     //Should call this function every time respawn;
     public void SpawnPosition(){
-        splineReference = TerrainGen.shape.spline.GetPosition(150)*TerrainGen.transform.localScale.x;
-        transform.position = new Vector3(splineReference.x, splineReference.y + colliderSize.y + 0.2f ,0);
+        //splineReference = TerrainGen.shape.spline.GetPosition(3)*TerrainGen.transform.localScale.x;
+        //transform.position = new Vector3(splineReference.x, splineReference.y + colliderSize.y + 0.2f ,0);
         // transform.position = new Vector3(0,60,0);
         // Debug.Log(transform.position);
     }

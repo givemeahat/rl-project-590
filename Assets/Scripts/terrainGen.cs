@@ -53,6 +53,7 @@ public class terrainGen : MonoBehaviour
     /* This function randomly resets the terrain!
     */
     public void generateTerrain(){
+        fPath.ClearPathList();
         for (int i = 0; i < pointCount; i++){ //adding a total of pointCount points to the middle of the 4 existing points\=
           float xPos = shape.spline.GetPosition(i+1).x + distanceBetweenPoints; 
           float yPos = 10 * Mathf.PerlinNoise(i*UnityEngine.Random.Range(randomLow, randomHigh),0);
@@ -117,11 +118,9 @@ public class terrainGen : MonoBehaviour
           shape.spline.SetTangentMode(i+2,ShapeTangentMode.Continuous);
           shape.spline.SetLeftTangent(i+2,new Vector3(-2,0,0));
           shape.spline.SetRightTangent(i+2,new Vector3(2,0,0));
-            if (i == pointCount - 1)
-            {
-                fPath.RecreateFoliage();
-            }
         }
+        fPath.ClearList();
+        fPath.transform.localPosition = new Vector2(fPath.transform.localPosition.x, fPath.transform.localPosition.y - 5f);
     }
 
     // public void resetTerrain(){

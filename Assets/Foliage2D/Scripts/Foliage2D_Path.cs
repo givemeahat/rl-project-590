@@ -211,6 +211,11 @@ namespace Foliage
         #endregion
 
         #region Class methods
+        public void ClearPathList()
+        {
+            handleControlsPos.Clear();
+            handlesPosition.Clear();
+        }
         /// <summary>
         /// Fills the foliage path with objects.
         /// </summary>
