@@ -5411,7 +5411,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187051763}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.43999863, y: 1.2800007, z: -183}
+  m_LocalPosition: {x: -0.43999863, y: 0.24000001, z: -183}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 1243493407}
@@ -6724,6 +6724,10 @@ MonoBehaviour:
   minHeightDifference: 2
   heightRange: 3
   fPath: {fileID: 1243493406}
+  grassPrefab: {fileID: 8026713198306307816, guid: fd6657de6e6f96b4abfe813ee6ad9b8c,
+    type: 3}
+  minObjPerSegment: 1
+  maxObjPerSegment: 5
 --- !u!50 &537305867
 Rigidbody2D:
   serializedVersion: 4
@@ -9050,7 +9054,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243493405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.96, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 187051768}
@@ -11037,7 +11041,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854373228}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.43999863, y: 1.2800007, z: 183}
+  m_LocalPosition: {x: 0.43999863, y: 0.24, z: 183}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 1243493407}

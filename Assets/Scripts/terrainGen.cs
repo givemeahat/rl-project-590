@@ -20,6 +20,10 @@ public class terrainGen : MonoBehaviour
     private float distanceBetweenPoints;
 
     public Foliage.Foliage2D_Path fPath;
+    public GameObject grassPrefab;
+
+    public int minObjPerSegment = 1;
+    public int maxObjPerSegment = 5;
 
 
     void Awake()
@@ -33,7 +37,6 @@ public class terrainGen : MonoBehaviour
         shape.spline.SetPosition(2, shape.spline.GetPosition(2)+Vector3.right*scale/2 + new Vector3 (0, -10, 0));
         shape.spline.SetPosition(3, shape.spline.GetPosition(3)+Vector3.right*scale/2- new Vector3(0,10,0));
 
-        Debug.Log("0: " + shape.spline.GetPosition(0) + "1: " + shape.spline.GetPosition(1) + "2: " + shape.spline.GetPosition(2) + "3: " + shape.spline.GetPosition(3));
         /*was getting a compile time bug where spawn position can't see that we are adding 300 points... 
         can get around this by initializing all the points and then essentially reset their posiiton at 
         the next generation; if do this method, no need to delete points, can use the same generation method
@@ -119,10 +122,20 @@ public class terrainGen : MonoBehaviour
           shape.spline.SetLeftTangent(i+2,new Vector3(-2,0,0));
           shape.spline.SetRightTangent(i+2,new Vector3(2,0,0));
         }
-        fPath.ClearList();
-        fPath.transform.localPosition = new Vector2(fPath.transform.localPosition.x, fPath.transform.localPosition.y - 5f);
+        /*fPath.ClearList();
+        fPath.transform.localPosition = new Vector2(fPath.transform.localPosition.x, fPath.transform.localPosition.y - 5f);*/
+        GenerateGrass();
     }
 
+    public void GenerateGrass()
+    {
+        Spline _spline = shape.spline;
+        for (int i = 0; i < _spline.GetPointCount(); i++)
+        {
+            Instantiate(grassPrefab, this.transform);
+            if (i == 5) break;
+        }
+    }
     // public void resetTerrain(){
     //   shape.spline
     // }
