@@ -27,12 +27,13 @@ public class terrainGen : MonoBehaviour
         shape = GetComponent<SpriteShapeController>();
         distanceBetweenPoints = (float)scale/pointCount;
 
-        shape.spline.SetPosition(0, shape.spline.GetPosition(0)-Vector3.right*scale/2- new Vector3(0,10,0));
-        shape.spline.SetPosition(1, shape.spline.GetPosition(1)-Vector3.right*scale/2);
+        shape.spline.SetPosition(0, shape.spline.GetPosition(0) - Vector3.right / 2 - new Vector3(0, 10, 0));
+        shape.spline.SetPosition(1, shape.spline.GetPosition(1) - Vector3.right / 2);
 
-        shape.spline.SetPosition(2, shape.spline.GetPosition(2)+Vector3.right*scale/2);
+        shape.spline.SetPosition(2, shape.spline.GetPosition(2)+Vector3.right*scale/2 + new Vector3 (0, -10, 0));
         shape.spline.SetPosition(3, shape.spline.GetPosition(3)+Vector3.right*scale/2- new Vector3(0,10,0));
-        
+
+        Debug.Log("0: " + shape.spline.GetPosition(0) + "1: " + shape.spline.GetPosition(1) + "2: " + shape.spline.GetPosition(2) + "3: " + shape.spline.GetPosition(3));
         /*was getting a compile time bug where spawn position can't see that we are adding 300 points... 
         can get around this by initializing all the points and then essentially reset their posiiton at 
         the next generation; if do this method, no need to delete points, can use the same generation method
@@ -45,15 +46,14 @@ public class terrainGen : MonoBehaviour
             {
                 xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints + 10;
             }
-            shape.spline.InsertPointAt(i+2, new Vector3(xPos, shape.spline.GetPosition(1).y,0));
+            shape.spline.InsertPointAt(i+2, new Vector3(xPos, shape.spline.GetPosition(1).y -10,0));
         }
     }
   
     /* This function randomly resets the terrain!
     */
     public void generateTerrain(){
-        for (int i = 0; i < pointCount; i++){ //adding a total of pointCount points to the middle of the 4 existing points\
-
+        for (int i = 0; i < pointCount; i++){ //adding a total of pointCount points to the middle of the 4 existing points\=
           float xPos = shape.spline.GetPosition(i+1).x + distanceBetweenPoints; 
           float yPos = 10 * Mathf.PerlinNoise(i*UnityEngine.Random.Range(randomLow, randomHigh),0);
             if (i < pointCount - 3 && i > pointCount - 13)
@@ -72,26 +72,20 @@ public class terrainGen : MonoBehaviour
             if (i == pointCount - 3)
             {
                 xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints;
-                yPos = 4;
+                yPos = 2;
             }
             if (i == pointCount - 2)
             {
                 xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints + 10;
-                yPos = 0;
+                yPos = 6;
             }
             if (i == pointCount - 1)
             {
-                xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints + 10;
-                yPos = 6;
+                xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints;
+                yPos = -50;
             }
 
-            float pYPos = shape.spline.GetPosition(i+1).y;
-          //makes sure there's no "flat" hills
-          if (Mathf.Abs(pYPos - yPos) < minHeightDifference){
-            heightRange =  minHeightDifference;
-          }
-
-          if (i < pointCount - 13)
+            if (i < pointCount - 13 && i != pointCount - 3 && i != pointCount - 2 && i != pointCount - 1)
             {
                 if (i % 2 == 0)
                 {
@@ -108,6 +102,13 @@ public class terrainGen : MonoBehaviour
             {
                 shape.spline.SetPosition(i + 2, new Vector3(xPos, yPos, 0));
                 fPath.AddPathPoint(new Vector2(xPos, yPos));
+            }
+
+            float pYPos = shape.spline.GetPosition(i + 1).y;
+            //makes sure there's no "flat" hills
+            if (Mathf.Abs(pYPos - yPos) < minHeightDifference && i > 5)
+            {
+                heightRange = minHeightDifference;
             }
 
         }
