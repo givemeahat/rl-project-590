@@ -24,7 +24,10 @@ public class terrainGen : MonoBehaviour
 
     public int minObjPerSegment = 1;
     public int maxObjPerSegment = 5;
+    public bool terrainGenerated = false;
 
+    public Transform grassGenerator;
+    public bool isDone = false;
 
     void Awake()
     {
@@ -124,18 +127,27 @@ public class terrainGen : MonoBehaviour
         }
         /*fPath.ClearList();
         fPath.transform.localPosition = new Vector2(fPath.transform.localPosition.x, fPath.transform.localPosition.y - 5f);*/
-        GenerateGrass();
     }
 
-    public void GenerateGrass()
+   /* public void GenerateGrass()
     {
-        Spline _spline = shape.spline;
-        for (int i = 0; i < _spline.GetPointCount(); i++)
+        RaycastHit2D hit = Physics2D.Raycast(grassGenerator.transform.position, -Vector2.up);
+        while (hit.collider.tag == "Ground")
         {
-            Instantiate(grassPrefab, this.transform);
-            if (i == 5) break;
+            Debug.Log("hello?");
+            float xPlusVal = UnityEngine.Random.Range(5f, 15f);
+            grassGenerator.position = new Vector3(grassGenerator.position.x + xPlusVal, grassGenerator.position.y);
+
+            RaycastHit2D _hit = Physics2D.Raycast(grassGenerator.transform.position, -Vector2.up);
+
+            // Cast a ray straight down.
+            if (hit.collider.tag == "Ground")
+            {
+                GameObject _go = Instantiate(grassPrefab, this.gameObject.transform) as GameObject;
+                _go.transform.position = new Vector3(_hit.point.x, _hit.point.y);
+            }
         }
-    }
+    }*/
     // public void resetTerrain(){
     //   shape.spline
     // }
@@ -143,6 +155,14 @@ public class terrainGen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        /*if (!terrainGenerated && shape.spline.GetPosition(150).y > 1)
+        {
+            terrainGenerated = true;
+            GenerateGrass();
+        }
+        if (!isDone)
+        {
+            GenerateGrass();
+        }*/
     }
 }

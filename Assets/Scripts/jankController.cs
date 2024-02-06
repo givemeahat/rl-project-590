@@ -4,8 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-
-
 public class jankController : MonoBehaviour
 {
     private Rigidbody2D m_Rigidbody2D;
@@ -231,7 +229,7 @@ public class jankController : MonoBehaviour
     }
 
     bool isReady(){
-      if(TerrainGen.shape.spline.GetPosition(150).y > 1){
+      if(TerrainGen.isDone){
         return true;
       }
       else{
