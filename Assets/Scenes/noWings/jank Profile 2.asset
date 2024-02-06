@@ -43,19 +43,19 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 1.31
+    m_Value: 3.93
   intensity:
     m_OverrideState: 1
-    m_Value: 108
+    m_Value: 108.96
   scatter:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.114
   clamp:
-    m_OverrideState: 0
-    m_Value: 65472
+    m_OverrideState: 1
+    m_Value: 100
   tint:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0, b: 0.116586685, a: 1}
+    m_Value: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
@@ -100,6 +100,34 @@ MonoBehaviour:
   saturation:
     m_OverrideState: 1
     m_Value: -100
+--- !u!114 &-2811796487413912634
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
+  m_Name: Vignette
+  m_EditorClassIdentifier: 
+  active: 0
+  color:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
+  center:
+    m_OverrideState: 1
+    m_Value: {x: 0.4, y: 0.53}
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.751
+  smoothness:
+    m_OverrideState: 1
+    m_Value: 0.828
+  rounded:
+    m_OverrideState: 1
+    m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +138,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: jank Profile
+  m_Name: jank Profile 2
   m_EditorClassIdentifier: 
   components:
   - {fileID: -5084460546270952372}
@@ -120,6 +148,7 @@ MonoBehaviour:
   - {fileID: -4141925654216245478}
   - {fileID: 221981592604738218}
   - {fileID: 4183104896929974364}
+  - {fileID: -2811796487413912634}
 --- !u!114 &221981592604738218
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -157,16 +186,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   mode:
     m_OverrideState: 1
     m_Value: 2
   gaussianStart:
-    m_OverrideState: 0
-    m_Value: 47.23
+    m_OverrideState: 1
+    m_Value: 0
   gaussianEnd:
     m_OverrideState: 1
-    m_Value: 0.6
+    m_Value: 0
   gaussianMaxRadius:
     m_OverrideState: 1
     m_Value: 0.5
@@ -175,7 +204,7 @@ MonoBehaviour:
     m_Value: 0
   focusDistance:
     m_OverrideState: 1
-    m_Value: 0.91
+    m_Value: 2.5
   aperture:
     m_OverrideState: 1
     m_Value: 5.6
@@ -206,13 +235,13 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.47596532, y: 0.7034046, z: 1, w: 0}
+    m_Value: {x: 0.47596532, y: 0.7034046, z: 1, w: -0.05970149}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 0.21881634, y: 1, z: 0.9037316, w: 0}
+    m_Value: {x: 0.21881634, y: 1, z: 0.9037316, w: -0.44776118}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 0.7458181, y: 1, z: 0.25334936, w: 0}
+    m_Value: {x: 0.7458181, y: 1, z: 0.25334936, w: 0.014925378}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
