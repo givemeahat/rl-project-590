@@ -9,7 +9,11 @@ public class GroundSpawner : MonoBehaviour
     public bool isDone = false;
     public GameObject terrainParent;
 
-    public void Start()
+    public Collider2D terrainTarget;
+
+    public LayerMask grassMask = 1 << 7;
+
+    public void Awake()
     {
         GenerateGrass();
     }
@@ -17,16 +21,11 @@ public class GroundSpawner : MonoBehaviour
     public void GenerateGrass()
     {
         Debug.Log("hello");
-        float xPlusVal = Random.Range(10, 25);
+
+        float xPlusVal = Random.Range(.1f, 25f);
         this.transform.position = new Vector3(this.transform.position.x + xPlusVal, this.transform.position.y);
         // Cast a ray straight down.
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
-        if (!hit)
-        {
-            isDone = true;
-            GenerateGrass();
-            return;
-        }
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, Mathf.Infinity, grassMask);
         if (hit.collider.tag == "Ground")
         {
             GameObject _go = Instantiate(grassPrefab, terrainParent.transform) as GameObject;
@@ -38,6 +37,9 @@ public class GroundSpawner : MonoBehaviour
 
     public void Update()
     {
-        //if (!isDone) GenerateGrass();
+        if (!isDone)
+        {
+            GenerateGrass();
+        }
     }
 }

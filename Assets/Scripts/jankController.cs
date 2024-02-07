@@ -52,7 +52,7 @@ public class jankController : MonoBehaviour
     }
     private void Start()
     {
-      // SpawnPosition();
+        // SpawnPosition();
     }
 
     // Update is called once per frame
@@ -93,7 +93,7 @@ public class jankController : MonoBehaviour
     public void SpeedBoost()
     {
         Debug.Log("NYOOOOM");
-        jGent.reward += 500f;
+        jGent.reward += 250f;
         nyoomText.SetActive(false);
         nyoomText.SetActive(true);
         m_Rigidbody2D.AddForce(new Vector2(m_Rigidbody2D.velocity.y + (currentBonus * multiplier), m_Rigidbody2D.velocity.x + (currentBonus * multiplier)));
@@ -149,7 +149,6 @@ public class jankController : MonoBehaviour
     public void SpawnPosition(){
         //splineReference = TerrainGen.shape.spline.GetPosition(3)*TerrainGen.transform.localScale.x;
         //transform.position = new Vector3(splineReference.x, splineReference.y + colliderSize.y + 0.2f ,0);
-        // transform.position = new Vector3(0,60,0);
         // Debug.Log(transform.position);
     }
     void OnCollisionEnter2D(Collision2D col){

@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 109107115}
   - component: {fileID: 109107113}
   - component: {fileID: 109107114}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: trigger v2-v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 124419374}
   - component: {fileID: 124419376}
   - component: {fileID: 124419375}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5350,7 +5350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 202625548}
   - component: {fileID: 202625549}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ObjectSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
@@ -5366,7 +5366,7 @@ Transform:
   m_GameObject: {fileID: 202625547}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 83, z: 182}
+  m_LocalPosition: {x: -8.9, y: 90.5, z: 182}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6058,7 +6058,7 @@ GameObject:
   m_Component:
   - component: {fileID: 371615200}
   - component: {fileID: 371615201}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6396,7 +6396,7 @@ GameObject:
   - component: {fileID: 537305868}
   - component: {fileID: 537305867}
   - component: {fileID: 537305866}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: terrain
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -7258,7 +7258,7 @@ GameObject:
   - component: {fileID: 806584814}
   - component: {fileID: 806584813}
   - component: {fileID: 806584815}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8013,7 +8013,7 @@ GameObject:
   - component: {fileID: 980720245}
   - component: {fileID: 980720243}
   - component: {fileID: 980720244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: trigger v1-v2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11175,7 +11175,7 @@ GameObject:
   - component: {fileID: 1970087447}
   - component: {fileID: 1970087448}
   - component: {fileID: 1970087449}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: jank
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -11194,10 +11194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c593eed32f8044ca849c7434992350e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  added_gravity: 15
+  added_gravity: 30
   original_gravity: 2
   penalty_gravity: 30
-  airDrag: 0
+  airDrag: 1
   grounded: 0
   isDiving: 0
   checkPoint: {fileID: 124419374}
@@ -11429,7 +11429,7 @@ GameObject:
   - component: {fileID: 1984187902}
   - component: {fileID: 1984187904}
   - component: {fileID: 1984187905}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: nyoom text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11686,7 +11686,7 @@ GameObject:
   - component: {fileID: 2063672719}
   - component: {fileID: 2063672718}
   - component: {fileID: 2063672717}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11763,7 +11763,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1403385792}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

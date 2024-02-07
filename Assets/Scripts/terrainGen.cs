@@ -63,28 +63,28 @@ public class terrainGen : MonoBehaviour
         for (int i = 0; i < pointCount; i++){ //adding a total of pointCount points to the middle of the 4 existing points\=
           float xPos = shape.spline.GetPosition(i+1).x + distanceBetweenPoints; 
           float yPos = 10 * Mathf.PerlinNoise(i*UnityEngine.Random.Range(randomLow, randomHigh),0);
-            if (i < pointCount - 3 && i > pointCount - 13)
+            if (i < pointCount - 3 && i > pointCount - 18)
             {
                 if (i%2 == 0)
                 {
                     xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints - 2;
-                    yPos = 0;
+                    yPos = -2 - (-(pointCount - i));
                 }
                 else
                 {
                     xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints - 2;
-                    yPos = 2f;
+                    yPos = 0f - (-(pointCount - i));
                 }
             }
             if (i == pointCount - 3)
             {
                 xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints;
-                yPos = 2;
+                yPos = -2 - (-(pointCount - i));
             }
             if (i == pointCount - 2)
             {
                 xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints + 10;
-                yPos = 6;
+                yPos = 10;
             }
             if (i == pointCount - 1)
             {

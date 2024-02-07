@@ -1,0 +1,391 @@
+fileFormatVersion: 2
+guid: c3fdbb4cd8a43a34c9a7262b6a5a7bc1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FS_Assets_Sprites_FoliageTiles1_Prototype_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 570
+        width: 364
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7244f8b45f2fb964583846be2b65f79e
+      internalID: 252219429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FS_Assets_Sprites_FoliageTiles1_Prototype_1
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 378
+        width: 108
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d15f0ec7146678a4d94e7ca5754055e9
+      internalID: -28832298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FS_Assets_Sprites_FoliageTiles1_Prototype_2
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 538
+        width: 319
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b085f677e55a1c4a97d27b09a46420f
+      internalID: 1414776404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FS_Assets_Sprites_FoliageTiles1_Prototype_3
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 481
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 226b0302da4a4994b82a3568a1fa0dda
+      internalID: -1042720838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FS_Assets_Sprites_FoliageTiles1_Prototype_4
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 257
+        width: 13
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91b4ca029e30e764e9bdd2bd0c27630b
+      internalID: -61328646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FS_Assets_Sprites_FoliageTiles1_Prototype_5
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 29
+        width: 227
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a05dd7bf10809d747b20aa455d05d80f
+      internalID: 1468820613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FS_Assets_Sprites_FoliageTiles1_Prototype_6
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 235
+        width: 17
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b5e00a0a91e832408693f1d986119f4
+      internalID: 1945894989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FS_Assets_Sprites_FoliageTiles1_Prototype_7
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 238
+        width: 95
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 893f884409822e748b1591b1fa610a2d
+      internalID: 245324639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FS_Assets_Sprites_FoliageTiles1_Prototype_8
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 322
+        width: 57
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01cd2139c86bd25488fdeb8be278fb41
+      internalID: 1734448634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FS_Assets_Sprites_FoliageTiles1_Prototype_9
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 243
+        width: 21
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3334cd1c6c1eb7d4fb1348544290ad0f
+      internalID: -1648556002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FS_Assets_Sprites_FoliageTiles1_Prototype_10
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 19
+        width: 198
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9cd4301d5fe0034c8291c88e05fc3c0
+      internalID: 2078500240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FS_Assets_Sprites_FoliageTiles1_Prototype_11
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 254
+        width: 66
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf408812727d4e429f697ffd5be27c4
+      internalID: -1983236781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      FS_Assets_Sprites_FoliageTiles1_Prototype_0: 252219429
+      FS_Assets_Sprites_FoliageTiles1_Prototype_1: -28832298
+      FS_Assets_Sprites_FoliageTiles1_Prototype_10: 2078500240
+      FS_Assets_Sprites_FoliageTiles1_Prototype_11: -1983236781
+      FS_Assets_Sprites_FoliageTiles1_Prototype_2: 1414776404
+      FS_Assets_Sprites_FoliageTiles1_Prototype_3: -1042720838
+      FS_Assets_Sprites_FoliageTiles1_Prototype_4: -61328646
+      FS_Assets_Sprites_FoliageTiles1_Prototype_5: 1468820613
+      FS_Assets_Sprites_FoliageTiles1_Prototype_6: 1945894989
+      FS_Assets_Sprites_FoliageTiles1_Prototype_7: 245324639
+      FS_Assets_Sprites_FoliageTiles1_Prototype_8: 1734448634
+      FS_Assets_Sprites_FoliageTiles1_Prototype_9: -1648556002
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
