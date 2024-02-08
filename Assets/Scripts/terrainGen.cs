@@ -18,8 +18,7 @@ public class terrainGen : MonoBehaviour
     private float randomLow = 10;
     private float randomHigh = 15;
     private float distanceBetweenPoints;
-
-    public Foliage.Foliage2D_Path fPath;
+    
     public GameObject grassPrefab;
 
     public int minObjPerSegment = 1;
@@ -59,7 +58,7 @@ public class terrainGen : MonoBehaviour
     /* This function randomly resets the terrain!
     */
     public void generateTerrain(){
-        fPath.ClearPathList();
+        //fPath.ClearPathList();
         for (int i = 0; i < pointCount; i++){ //adding a total of pointCount points to the middle of the 4 existing points\=
           float xPos = shape.spline.GetPosition(i+1).x + distanceBetweenPoints; 
           float yPos = 10 * Mathf.PerlinNoise(i*UnityEngine.Random.Range(randomLow, randomHigh),0);
@@ -67,12 +66,12 @@ public class terrainGen : MonoBehaviour
             {
                 if (i%2 == 0)
                 {
-                    xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints - 2;
+                    xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints;
                     yPos = -2 - (-(pointCount - i));
                 }
                 else
                 {
-                    xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints - 2;
+                    xPos = shape.spline.GetPosition(i + 1).x + distanceBetweenPoints;
                     yPos = 0f - (-(pointCount - i));
                 }
             }
@@ -97,18 +96,18 @@ public class terrainGen : MonoBehaviour
                 if (i % 2 == 0)
                 {
                     shape.spline.SetPosition(i + 2, new Vector3(xPos, yPos + heightRange, 0));
-                    fPath.AddPathPoint(new Vector2(xPos, yPos + heightRange));
+                    //fPath.AddPathPoint(new Vector2(xPos, yPos + heightRange));
                 }
                 else
                 {
                     shape.spline.SetPosition(i + 2, new Vector3(xPos, yPos - heightRange, 0));
-                    fPath.AddPathPoint(new Vector2(xPos, yPos - heightRange));
+                    //fPath.AddPathPoint(new Vector2(xPos, yPos - heightRange));
                 }
             }
             else
             {
                 shape.spline.SetPosition(i + 2, new Vector3(xPos, yPos, 0));
-                fPath.AddPathPoint(new Vector2(xPos, yPos));
+                //fPath.AddPathPoint(new Vector2(xPos, yPos));
             }
 
             float pYPos = shape.spline.GetPosition(i + 1).y;
