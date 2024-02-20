@@ -5356,7 +5356,7 @@ GameObject:
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &202625548
 Transform:
   m_ObjectHideFlags: 0
@@ -5981,9 +5981,10 @@ GameObject:
   m_Component:
   - component: {fileID: 371615200}
   - component: {fileID: 371615201}
+  - component: {fileID: 371615202}
   m_Layer: 3
   m_Name: sprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5997,8 +5998,8 @@ Transform:
   m_GameObject: {fileID: 371615199}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -1.77, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1970087443}
@@ -6044,9 +6045,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a44130a6cd5ff4729b810fc8384c898c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1f687286967da94ba7092c845516778, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.96, y: 0.96}
@@ -6055,6 +6056,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &371615202
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371615199}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &398362639
 GameObject:
   m_ObjectHideFlags: 0
@@ -7047,7 +7075,7 @@ Canvas:
   m_GameObject: {fileID: 728694793}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1403385792}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -8840,7 +8868,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -108.37, y: 227}
+  m_AnchoredPosition: {x: -108.37, y: 255.86}
   m_SizeDelta: {x: 538.4683, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1261586768
@@ -9396,7 +9424,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 30
+  orthographic size: 80
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -9421,7 +9449,7 @@ Transform:
   m_GameObject: {fileID: 1403385788}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.2, y: 18.4, z: 128.6}
+  m_LocalPosition: {x: 83.8, y: -24.89998, z: 128.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10888,6 +10916,12 @@ MonoBehaviour:
   multiplier: 1
   nyoomText: {fileID: 1984187900}
   fPath: {fileID: 0}
+  _botRight: {x: 0.5, y: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 256
+  playerSprite: {fileID: 371615199}
+  spriteRB: {fileID: 0}
 --- !u!50 &1970087441
 Rigidbody2D:
   serializedVersion: 4
@@ -11363,8 +11397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22dc68242d36c804f80751218b65e768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windNoiseScale: 0.1
-  windNoiseSpeed: 2
+  windNoiseScale: 0.05
+  windNoiseSpeed: 1
   windIntensityFrom: -0.5
   windIntensityTo: 0.5
 --- !u!1 &2063672715

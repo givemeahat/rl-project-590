@@ -44,8 +44,14 @@ public class jankController : MonoBehaviour
     public GameObject nyoomText;
     public Foliage.Foliage2D_Path fPath;
 
+    public Vector2 _botRight;
+    public LayerMask groundMask;
+    public GameObject playerSprite;
+    public Rigidbody2D spriteRB;
+
 
     private void Awake(){
+        groundMask = LayerMask.GetMask("Ground");
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
 		    colliderSize = GetComponents<Collider2D>()[0].bounds.extents;
         jGent = GetComponent<jankGent>();
@@ -88,6 +94,29 @@ public class jankController : MonoBehaviour
         }
         storeYVel = m_Rigidbody2D.velocity.y;
         //SlopeCheck();
+        float _scanDistance = 5f;
+        if (isDiving)
+        {
+            _scanDistance = 1000f;
+        }
+        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector2.down, _scanDistance, groundMask);
+
+        if (hit)
+        {
+            if (hit.collider.gameObject.tag == "Ground")
+            {
+                float computedAngle = Vector2.Angle(Vector2.up, hit.normal);
+                Debug.Log("The angle between the Normal and Global Up is: " + Vector2.Angle(Vector2.up, hit.normal));
+                if (downhill || downhill && isDiving )
+                {
+                    playerSprite.transform.rotation = Quaternion.Euler(0, 0, -computedAngle);
+                }
+                else if (uphill && grounded)
+                {
+                    playerSprite.transform.rotation = Quaternion.Euler(0, 0, computedAngle);
+                }
+            }
+        }
     }
 
     public void SpeedBoost()

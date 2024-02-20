@@ -21,8 +21,6 @@ public class GroundSpawner : MonoBehaviour
 
     public void GenerateGrass()
     {
-        Debug.Log("hello");
-
         float xPlusVal = Random.Range(.1f, 5);
         this.transform.position = new Vector3(this.transform.position.x + xPlusVal, this.transform.position.y);
         // Cast a ray straight down.
@@ -37,7 +35,6 @@ public class GroundSpawner : MonoBehaviour
             //_go.transform.rotation = new Quaternion (_go.transform.rotation.x, _go.transform.rotation.y, hit.normal.x, 0f);
             _go.transform.up = hit.normal;
             _go.transform.localPosition = new Vector3(_go.transform.localPosition.x, _go.transform.localPosition.y, 18f);
-            Debug.Log("bazinga");
             GenerateGrass();
         }
     }
