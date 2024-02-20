@@ -106,14 +106,15 @@ public class jankController : MonoBehaviour
             if (hit.collider.gameObject.tag == "Ground")
             {
                 float computedAngle = Vector2.Angle(Vector2.up, hit.normal);
-                Debug.Log("The angle between the Normal and Global Up is: " + Vector2.Angle(Vector2.up, hit.normal));
                 if (downhill || downhill && isDiving )
                 {
-                    playerSprite.transform.rotation = Quaternion.Euler(0, 0, -computedAngle);
+                    playerSprite.transform.rotation = Quaternion.Lerp(playerSprite.transform.rotation, Quaternion.Euler(0, 0, -computedAngle), 0.5f);
                 }
                 else if (uphill && grounded)
                 {
-                    playerSprite.transform.rotation = Quaternion.Euler(0, 0, computedAngle);
+                    playerSprite.transform.rotation = Quaternion.Lerp(playerSprite.transform.rotation, Quaternion.Euler(0, 0, computedAngle), 0.5f);
+
+                    //playerSprite.transform.rotation = Quaternion.Euler(0, 0, computedAngle);
                 }
             }
         }
