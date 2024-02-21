@@ -5356,7 +5356,7 @@ GameObject:
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &202625548
 Transform:
   m_ObjectHideFlags: 0
@@ -6177,7 +6177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &505818502
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6538,8 +6538,8 @@ SpriteShapeRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 5f7968772370f394f82eb42a00bde347, type: 3}
-  - {fileID: 2100000, guid: 0155992a64a4bc047b409292402b7c9f, type: 2}
+  - {fileID: 2100000, guid: a247238476cca314b8da4311e1acd0d7, type: 2}
+  - {fileID: 2100000, guid: a247238476cca314b8da4311e1acd0d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6560,7 +6560,7 @@ SpriteShapeRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 2800000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
   m_Sprites:
