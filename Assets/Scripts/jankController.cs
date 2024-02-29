@@ -82,7 +82,11 @@ public class jankController : MonoBehaviour
         if (m_Rigidbody2D.velocity.y <= 0)
         {
             Debug.Log("Downhill");
-            if (uphill) uphill = false;
+            if (uphill)
+            {
+                uphill = false;
+                AdjustRotation();
+            }
             downhill = true;
         }
         if (m_Rigidbody2D.velocity.y > 0 && storeYVel <= 0)
@@ -100,7 +104,7 @@ public class jankController : MonoBehaviour
         float _scanDistance = 5f;
         if (isDiving)
         {
-            _scanDistance = 1000f;
+            _scanDistance = 5000f;
         }
         RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector2.down, _scanDistance, groundMask);
 
@@ -123,6 +127,35 @@ public class jankController : MonoBehaviour
         }
     }
 
+    public void AdjustRotation()
+    {
+        Debug.Log("stinky");
+        float _scanDistance = 5000f;
+        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector2.down, _scanDistance, groundMask);
+
+        if (hit)
+        {
+            if (hit.collider.gameObject.tag == "Ground")
+            {
+                float computedAngle = Vector2.Angle(Vector2.up, hit.normal);
+                StartCoroutine(SmoothRotate(computedAngle));
+            }
+        }
+    }
+    IEnumerator SmoothRotate(float computedAngle)
+    {
+        float _f = 0f;
+        float endTime = 5f*m_Rigidbody2D.velocity.x;
+        while (_f < endTime)
+        {
+            if (isDiving || uphill) yield break;
+            _f += Time.deltaTime;
+            playerSprite.transform.rotation = Quaternion.Lerp(playerSprite.transform.rotation, Quaternion.Euler(0, 0, -computedAngle).normalized, _f/endTime);
+            yield return null;
+        }
+        playerSprite.transform.rotation = Quaternion.Euler(0, 0, -computedAngle).normalized;
+    }
+
     public void SpeedBoost()
     {
         Debug.Log("NYOOOOM");
@@ -131,7 +164,7 @@ public class jankController : MonoBehaviour
         nyoomText.SetActive(false);
         nyoomText.SetActive(true);
         m_Rigidbody2D.AddForce(new Vector2(m_Rigidbody2D.velocity.y + (currentBonus * multiplier), m_Rigidbody2D.velocity.x + (currentBonus * multiplier)));
-        if (multiplier <= 3f) multiplier = multiplier + .5f;
+        if (multiplier < 3f) multiplier = multiplier + .5f;
         else multiplier = 3f;
     }
     public void DisableNyoomTxt()
