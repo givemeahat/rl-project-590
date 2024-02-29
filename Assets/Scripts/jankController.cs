@@ -49,9 +49,12 @@ public class jankController : MonoBehaviour
     public GameObject playerSprite;
     public Rigidbody2D spriteRB;
 
+    public GM gm;
+
 
     private void Awake(){
         groundMask = LayerMask.GetMask("Ground");
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GM>();
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
 		    colliderSize = GetComponents<Collider2D>()[0].bounds.extents;
         jGent = GetComponent<jankGent>();
@@ -123,7 +126,8 @@ public class jankController : MonoBehaviour
     public void SpeedBoost()
     {
         Debug.Log("NYOOOOM");
-        jGent.reward += 250f;
+        jGent.reward += 1000f;
+        gm.ActivateBonusScoreText();
         nyoomText.SetActive(false);
         nyoomText.SetActive(true);
         m_Rigidbody2D.AddForce(new Vector2(m_Rigidbody2D.velocity.y + (currentBonus * multiplier), m_Rigidbody2D.velocity.x + (currentBonus * multiplier)));

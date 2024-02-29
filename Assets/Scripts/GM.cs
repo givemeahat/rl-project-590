@@ -11,7 +11,7 @@ public class GM : MonoBehaviour
     public GameObject pauseScreen;
     public bool isPaused = false;
     public TMP_Text menuScoreText;
-    
+    public GameObject bonusText;
     
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,10 @@ public class GM : MonoBehaviour
             PauseToggle();
         }
     }
-
+    public void ActivateBonusScoreText()
+    {
+        bonusText.SetActive(true);
+    }
     public void EndGame()
     {
         Time.timeScale = 0;
