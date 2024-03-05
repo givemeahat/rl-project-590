@@ -6,6 +6,10 @@ using System;
 
 public class jankController : MonoBehaviour
 {
+    public enum PlayerStatus { INLEVEL, FLYINGTONEXT };
+
+    public PlayerStatus currentStatus;
+
     private Rigidbody2D m_Rigidbody2D;
     private jankGent jGent;
 
@@ -35,7 +39,7 @@ public class jankController : MonoBehaviour
 
     [SerializeField] private float slopeCheckDistance;
 
-    [SerializeField] private terrainGen TerrainGen;
+    [SerializeField] public terrainGen TerrainGen;
     private Vector3 splineReference;
 
     public int currentBonus = 10;
@@ -51,6 +55,7 @@ public class jankController : MonoBehaviour
 
     public GM gm;
 
+    private bool notOnStart = false;
 
     private void Awake(){
         groundMask = LayerMask.GetMask("Ground");
@@ -108,10 +113,23 @@ public class jankController : MonoBehaviour
         }
         RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector2.down, _scanDistance, groundMask);
 
+        /*if (grounded)
+        {
+            m_Rigidbody2D.AddForce(new Vector2(min_xforce, 0));
+            if (uphill)
+            {
+                //m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * -1f * 10000f)));
+                m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * slopeNormalPerpendicular.y * -1f)));
+                Debug.Log("Going Up");
+            }
+            //m_Rigidbody2D.drag = 0;
+        }*/
+
         if (hit)
         {
             if (hit.collider.gameObject.tag == "Ground")
             {
+                currentStatus = PlayerStatus.INLEVEL;
                 float computedAngle = Vector2.Angle(Vector2.up, hit.normal);
                 if (downhill || downhill && isDiving )
                 {
@@ -125,11 +143,14 @@ public class jankController : MonoBehaviour
                 }
             }
         }
+        else if (notOnStart)
+        {
+            currentStatus = PlayerStatus.FLYINGTONEXT;
+        }
     }
 
     public void AdjustRotation()
     {
-        Debug.Log("stinky");
         float _scanDistance = 5000f;
         RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector2.down, _scanDistance, groundMask);
 
@@ -290,7 +311,9 @@ public class jankController : MonoBehaviour
     public IEnumerator Reset(){
       TerrainGen.generateTerrain();
       yield return new WaitUntil(isReady);
-      SpawnPosition();
+        currentStatus = PlayerStatus.INLEVEL;
+        notOnStart = true;
+        SpawnPosition();
       m_Rigidbody2D.velocity = Vector3.zero;
     }
 
