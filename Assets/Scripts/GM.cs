@@ -73,7 +73,7 @@ public class GM : MonoBehaviour
         GameObject terrain = Instantiate(terrainPrefab) as GameObject;
         terrain.GetComponent<terrainGen>().generateTerrain();
         playerCont.TerrainGen = terrain.GetComponent<terrainGen>();
-        terrain.transform.localPosition = new Vector3(player.transform.localPosition.x + 1000f, 0f, 182f);
+        terrain.transform.localPosition = new Vector3(player.transform.position.x + 1000f, 0f, 182f);
         levelGenTriggered = true;
     }
 

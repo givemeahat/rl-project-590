@@ -55,7 +55,7 @@ public class jankController : MonoBehaviour
 
     public GM gm;
 
-    private bool notOnStart = false;
+    public bool notOnStart = false;
 
     private void Awake(){
         groundMask = LayerMask.GetMask("Ground");
@@ -111,7 +111,6 @@ public class jankController : MonoBehaviour
         {
             _scanDistance = 5000f;
         }
-        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector2.down, _scanDistance, groundMask);
 
         /*if (grounded)
         {
@@ -125,13 +124,13 @@ public class jankController : MonoBehaviour
             //m_Rigidbody2D.drag = 0;
         }*/
 
-        if (hit)
+        /*if (hit)
         {
             if (hit.collider.gameObject.tag == "Ground")
             {
                 currentStatus = PlayerStatus.INLEVEL;
                 float computedAngle = Vector2.Angle(Vector2.up, hit.normal);
-                if (downhill || downhill && isDiving )
+                if (downhill || downhill && isDiving)
                 {
                     playerSprite.transform.rotation = Quaternion.Lerp(playerSprite.transform.rotation, Quaternion.Euler(0, 0, -computedAngle), 0.5f);
                 }
@@ -142,11 +141,37 @@ public class jankController : MonoBehaviour
                     //playerSprite.transform.rotation = Quaternion.Euler(0, 0, computedAngle);
                 }
             }
+            else currentStatus = PlayerStatus.FLYINGTONEXT;
         }
-        else if (notOnStart)
+        else { currentStatus = PlayerStatus.FLYINGTONEXT; }*/
+    }
+
+    public void LateUpdate()
+    {
+        float _scanDistance = 5000f;
+
+        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector2.down, _scanDistance, groundMask);
+
+        if (hit)
         {
-            currentStatus = PlayerStatus.FLYINGTONEXT;
+            if (hit.collider.gameObject.tag == "Ground")
+            {
+                currentStatus = PlayerStatus.INLEVEL;
+                float computedAngle = Vector2.Angle(Vector2.up, hit.normal);
+                if (downhill || downhill && isDiving)
+                {
+                    playerSprite.transform.rotation = Quaternion.Lerp(playerSprite.transform.rotation, Quaternion.Euler(0, 0, -computedAngle), 0.5f);
+                }
+                else if (uphill && grounded)
+                {
+                    playerSprite.transform.rotation = Quaternion.Lerp(playerSprite.transform.rotation, Quaternion.Euler(0, 0, computedAngle), 0.5f);
+
+                    //playerSprite.transform.rotation = Quaternion.Euler(0, 0, computedAngle);
+                }
+            }
+            else currentStatus = PlayerStatus.FLYINGTONEXT;
         }
+        else { currentStatus = PlayerStatus.FLYINGTONEXT; }
     }
 
     public void AdjustRotation()
@@ -312,14 +337,14 @@ public class jankController : MonoBehaviour
       TerrainGen.generateTerrain();
       yield return new WaitUntil(isReady);
         currentStatus = PlayerStatus.INLEVEL;
-        notOnStart = true;
         SpawnPosition();
       m_Rigidbody2D.velocity = Vector3.zero;
     }
 
     bool isReady(){
       if(TerrainGen.isDone){
-        return true;
+            notOnStart = true;
+            return true;
       }
       else{
         return false;
