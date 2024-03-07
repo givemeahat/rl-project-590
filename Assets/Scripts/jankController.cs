@@ -55,6 +55,7 @@ public class jankController : MonoBehaviour
 
     public GM gm;
 
+    private bool nextLevelBoost = false;
     public bool notOnStart = false;
 
     private void Awake(){
@@ -72,6 +73,7 @@ public class jankController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (currentStatus == jankController.PlayerStatus.INLEVEL && gm.levelGenTriggered) gm.levelGenTriggered = false;
         if(reset){
           // Reset();
           StartCoroutine(Reset());
@@ -157,6 +159,7 @@ public class jankController : MonoBehaviour
             if (hit.collider.gameObject.tag == "Ground")
             {
                 currentStatus = PlayerStatus.INLEVEL;
+                nextLevelBoost = false;
                 float computedAngle = Vector2.Angle(Vector2.up, hit.normal);
                 if (downhill || downhill && isDiving)
                 {
@@ -171,7 +174,13 @@ public class jankController : MonoBehaviour
             }
             else currentStatus = PlayerStatus.FLYINGTONEXT;
         }
-        else { currentStatus = PlayerStatus.FLYINGTONEXT; }
+        else { currentStatus = PlayerStatus.FLYINGTONEXT;
+            if (!nextLevelBoost)
+            {
+                m_Rigidbody2D.AddForce(new Vector2(1000f, 2000f));
+                nextLevelBoost = true;
+            }
+        }
     }
 
     public void AdjustRotation()
@@ -237,7 +246,7 @@ public class jankController : MonoBehaviour
             if (uphill)
             {
                 //m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * -1f * 10000f)));
-                m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * slopeNormalPerpendicular.y * -1f * 10000f)));
+                m_Rigidbody2D.AddForce(new Vector2(0, Math.Max(min_xforce, min_xforce * slopeNormalPerpendicular.y * -1f * 1000f)));
                 Debug.Log("Going Up");
             }
           //m_Rigidbody2D.drag = 0;

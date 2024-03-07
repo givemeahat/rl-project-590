@@ -11134,7 +11134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e1fd3f77a9e974e9631f2bcc77dbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AmountOfParallax: 0.6
+  AmountOfParallax: 0.7
   MainCamera: {fileID: 1403385792}
 --- !u!1 &1351974157
 GameObject:
@@ -13473,6 +13473,7 @@ MonoBehaviour:
   playerSprite: {fileID: 371615199}
   spriteRB: {fileID: 0}
   gm: {fileID: 0}
+  notOnStart: 0
 --- !u!50 &1970087441
 Rigidbody2D:
   serializedVersion: 4
