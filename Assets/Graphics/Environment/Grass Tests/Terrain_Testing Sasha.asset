@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7181f404f1447c0a7a17b3070b952b, type: 3}
+  m_Name: Terrain_Testing Sasha
+  m_EditorClassIdentifier: 
+  m_Angles:
+  - m_Start: -60
+    m_End: 60
+    m_Order: 0
+    m_Sprites:
+    - {fileID: 21300000, guid: 69bad059ff3cdd943a4c95a19f9e4804, type: 3}
+    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+    - {fileID: 21300000, guid: 459c17a10ba37db418ad61c99a4554d2, type: 3}
+    - {fileID: 21300000, guid: 75efa9f01dd8bfb41a967901f447d5e9, type: 3}
+    - {fileID: 21300000, guid: 87247f23d68b1e7499a771fed3ba8ac5, type: 3}
+    - {fileID: 21300000, guid: d60ba7f03ea34614b924c70b6c09b5e6, type: 3}
+  m_FillTexture: {fileID: 2800000, guid: 6b96d6950a9c30743a2e826ee8684ac4, type: 3}
+  m_CornerSprites:
+  - m_CornerType: 0
+    m_Sprites:
+    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+  - m_CornerType: 1
+    m_Sprites:
+    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+  - m_CornerType: 2
+    m_Sprites:
+    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+  - m_CornerType: 3
+    m_Sprites:
+    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+  - m_CornerType: 4
+    m_Sprites:
+    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+  - m_CornerType: 5
+    m_Sprites:
+    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+  - m_CornerType: 6
+    m_Sprites:
+    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+  - m_CornerType: 7
+    m_Sprites:
+    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+  m_FillOffset: 0
+  m_UseSpriteBorders: 1
