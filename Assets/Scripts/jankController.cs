@@ -73,6 +73,10 @@ public class jankController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        /*if (this.transform.position.y > 125f)
+        {
+            m_Rigidbody2D.gravityScale = 1.5f;
+        }*/
         if (currentStatus == jankController.PlayerStatus.INLEVEL && gm.levelGenTriggered) gm.levelGenTriggered = false;
         if(reset){
           // Reset();

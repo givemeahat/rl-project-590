@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Powerup : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float boostNum;
 
-    // Update is called once per frame
-    void Update()
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        collision.gameObject.GetComponent<jankController>().SpeedBoost();
+        Destroy(this.gameObject);
+        //call function in jankController 
+        //delete self
     }
 }

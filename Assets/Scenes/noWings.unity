@@ -5662,13 +5662,14 @@ GameObject:
   m_Component:
   - component: {fileID: 202625548}
   - component: {fileID: 202625549}
+  - component: {fileID: 202625550}
   m_Layer: 8
   m_Name: ObjectSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &202625548
 Transform:
   m_ObjectHideFlags: 0
@@ -5691,7 +5692,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202625547}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 007f134f78098474ba7f5e8f8aa34439, type: 3}
   m_Name: 
@@ -5701,6 +5702,26 @@ MonoBehaviour:
   - {fileID: 8026713198306307816, guid: 348c591b4988684478ccd7495c217a73, type: 3}
   - {fileID: 8026713198306307816, guid: e07fa83d19f8c83469c2e18d9e214996, type: 3}
   - {fileID: 8026713198306307816, guid: 36368f8e62929194ab10a5b28de3926b, type: 3}
+  isDone: 0
+  terrainParent: {fileID: 537305865}
+  terrainTarget: {fileID: 0}
+  grassMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &202625550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202625547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dabd38f4b233a548947d3598e2742a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUps:
+  - {fileID: 8026713198306307816, guid: ccea7dc45c6981f49beecdf43fc2507d, type: 3}
   isDone: 0
   terrainParent: {fileID: 537305865}
   terrainTarget: {fileID: 0}
@@ -13449,7 +13470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStatus: 0
   added_gravity: 30
-  original_gravity: 2
+  original_gravity: 3.5
   penalty_gravity: 30
   airDrag: 1
   grounded: 0
