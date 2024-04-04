@@ -8,8 +8,15 @@ public class Powerup : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.gameObject.GetComponent<jankController>().SpeedBoost();
-        Destroy(this.gameObject);
+        Debug.Log("collide");
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("bazinga");
+
+            collision.gameObject.GetComponent<jankController>().SpeedBoost();
+            Destroy(this.gameObject);
+        }
+
         //call function in jankController 
         //delete self
     }

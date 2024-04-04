@@ -5721,7 +5721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUps:
-  - {fileID: 8026713198306307816, guid: ccea7dc45c6981f49beecdf43fc2507d, type: 3}
+  - {fileID: 8026713198306307816, guid: fc82e42b4bfe0fd49aec9337ef2d17f3, type: 3}
   isDone: 0
   terrainParent: {fileID: 537305865}
   terrainTarget: {fileID: 0}
@@ -6433,7 +6433,7 @@ Transform:
   m_GameObject: {fileID: 310569178}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 83.8, y: -24.89998, z: 128.6}
+  m_LocalPosition: {x: 83.8, y: -24.89998, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11408,7 +11408,7 @@ Transform:
   m_GameObject: {fileID: 1403385788}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.2, y: 18.4, z: 128.6}
+  m_LocalPosition: {x: 24.2, y: 18.4, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13557,7 +13557,7 @@ Transform:
   m_GameObject: {fileID: 1970087439}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4, y: 18.4, z: 138.6}
+  m_LocalPosition: {x: -0.4, y: 18.4, z: -8}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13600,7 +13600,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_Direction: 0
 --- !u!114 &1970087445
 MonoBehaviour:
@@ -14466,7 +14466,7 @@ Transform:
   m_GameObject: {fileID: 2112851445}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.2, y: 18.4, z: 128.6}
+  m_LocalPosition: {x: 24.2, y: 18.4, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

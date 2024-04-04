@@ -20,7 +20,7 @@ public class PowerupSpawner : MonoBehaviour
 
     public void GenerateGrass()
     {
-        float xPlusVal = Random.Range(100,1000);
+        float xPlusVal = Random.Range(10,1000);
         this.transform.position = new Vector3(this.transform.position.x + xPlusVal, this.transform.position.y);
         // Cast a ray straight down.
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, Mathf.Infinity, grassMask);
@@ -33,7 +33,7 @@ public class PowerupSpawner : MonoBehaviour
             //attempting to set Z axis rotation by the raycast's normal
             //_go.transform.rotation = new Quaternion (_go.transform.rotation.x, _go.transform.rotation.y, hit.normal.x, 0f);
             _go.transform.up = hit.normal;
-            _go.transform.localPosition = new Vector3(_go.transform.localPosition.x, _go.transform.localPosition.y + 2f, 182f);
+            _go.transform.localPosition = new Vector3(_go.transform.localPosition.x, _go.transform.localPosition.y + .5f, -8f);
             GenerateGrass();
         }
     }

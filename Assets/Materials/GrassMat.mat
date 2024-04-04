@@ -8,17 +8,17 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GrassMat
-  m_Shader: {fileID: 4800000, guid: 0803c241834332942abfcbd27c498b46, type: 3}
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - _ENABLEADDCOLOR_ON
   - _ENABLERECOLOR_ON
   - _ENABLEWIND_ON
   - _SHADERSPACE_UV
   - _TIMESETTINGS_LINEAR_DEFAULT
   - _UBERFADING_NONE
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -226,6 +226,7 @@ Material:
     - _EnableDirectionalAlphaFade: 0
     - _EnableDirectionalDistortion: 0
     - _EnableDirectionalGlowFade: 0
+    - _EnableExternalAlpha: 0
     - _EnableFlame: 0
     - _EnableFrozen: 0
     - _EnableFullAlphaDissolve: 0
@@ -452,6 +453,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlameNoiseScale: {r: 1.2, g: 0.8, b: 0, a: 0}
     - _FlameSpeed: {r: 0, g: -0.5, b: 0, a: 0}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _FrozenHighlightColor: {r: 1.797647, g: 4.604501, b: 5.992157, a: 1}
     - _FrozenHighlightDistortion: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _FrozenHighlightDistortionScale: {r: 0.2, g: 0.2, b: 0, a: 0}
@@ -504,6 +506,7 @@ Material:
     - _RecolorPurpleTint: {r: 1, g: 1, b: 1, a: 0.5019608}
     - _RecolorRedTint: {r: 1, g: 1, b: 1, a: 0.5019608}
     - _RecolorYellowTint: {r: 1, g: 1, b: 1, a: 0.5019608}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShineColor: {r: 11.98431, g: 11.98431, b: 11.98431, a: 0}
     - _SineGlowColor: {r: 0, g: 2.007843, b: 2.996078, a: 0}
     - _SineMoveFrequency: {r: 1, g: 1, b: 0, a: 0}
