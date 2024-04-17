@@ -51,6 +51,7 @@ public class jankController : MonoBehaviour
     public Vector2 _botRight;
     public LayerMask groundMask;
     public GameObject playerSprite;
+    public Animator anim;
     public Rigidbody2D spriteRB;
 
     public GM gm;
@@ -277,12 +278,14 @@ public class jankController : MonoBehaviour
 
         Debug.Log("grounded");
         grounded = true;
+        anim.SetBool("Grounded", true);
             //Check for slope, if on slope, need to add a vertical velocity perpendicular to slope to prevent it from falling down
         }
 
     void OnCollisionExit2D(Collision2D col){
         Debug.Log("Not grounded");
         grounded = false;
+        anim.SetBool("Grounded", false);
     }
 
     /*private void slopeDeclare(float slopeSideAngle){
