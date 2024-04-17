@@ -119,11 +119,15 @@ public class terrainGen : MonoBehaviour
 
         }
 
+        //shape = My SpriteShape
+        //SpriteShapeMetaData _ssMD = shape.GetComponent<SpriteShapeMetaData>();
         for (int i = 0; i < pointCount; i++){
           shape.spline.SetTangentMode(i+2,ShapeTangentMode.Continuous);
+          //_ssMD.spriteIndex = (uint) UnityEngine.Random.Range(0, 5);
           shape.spline.SetLeftTangent(i+2,new Vector3(-2,0,0));
           shape.spline.SetRightTangent(i+2,new Vector3(2,0,0));
         }
+
         /*fPath.ClearList();
         fPath.transform.localPosition = new Vector2(fPath.transform.localPosition.x, fPath.transform.localPosition.y - 5f);*/
     }

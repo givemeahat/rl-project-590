@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Terrain_Testing Sasha
   m_EditorClassIdentifier: 
   m_Angles:
-  - m_Start: -60
-    m_End: 60
+  - m_Start: -70
+    m_End: 70
     m_Order: 0
     m_Sprites:
-    - {fileID: 21300000, guid: 69bad059ff3cdd943a4c95a19f9e4804, type: 3}
     - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+    - {fileID: 21300000, guid: 69bad059ff3cdd943a4c95a19f9e4804, type: 3}
     - {fileID: 21300000, guid: 459c17a10ba37db418ad61c99a4554d2, type: 3}
     - {fileID: 21300000, guid: 75efa9f01dd8bfb41a967901f447d5e9, type: 3}
     - {fileID: 21300000, guid: 87247f23d68b1e7499a771fed3ba8ac5, type: 3}
@@ -27,27 +27,27 @@ MonoBehaviour:
   m_CornerSprites:
   - m_CornerType: 0
     m_Sprites:
-    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+    - {fileID: 21300000, guid: ac94bac0d94d6e44ca45a72704f7bc8e, type: 3}
   - m_CornerType: 1
     m_Sprites:
-    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+    - {fileID: 21300000, guid: ac94bac0d94d6e44ca45a72704f7bc8e, type: 3}
   - m_CornerType: 2
     m_Sprites:
-    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+    - {fileID: 21300000, guid: ac94bac0d94d6e44ca45a72704f7bc8e, type: 3}
   - m_CornerType: 3
     m_Sprites:
-    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+    - {fileID: 21300000, guid: ac94bac0d94d6e44ca45a72704f7bc8e, type: 3}
   - m_CornerType: 4
     m_Sprites:
-    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+    - {fileID: 21300000, guid: ac94bac0d94d6e44ca45a72704f7bc8e, type: 3}
   - m_CornerType: 5
     m_Sprites:
-    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+    - {fileID: 21300000, guid: ac94bac0d94d6e44ca45a72704f7bc8e, type: 3}
   - m_CornerType: 6
     m_Sprites:
-    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+    - {fileID: 21300000, guid: ac94bac0d94d6e44ca45a72704f7bc8e, type: 3}
   - m_CornerType: 7
     m_Sprites:
-    - {fileID: 21300000, guid: 006dd462f78ee7346a3978904eb09b24, type: 3}
+    - {fileID: 21300000, guid: ac94bac0d94d6e44ca45a72704f7bc8e, type: 3}
   m_FillOffset: 0
   m_UseSpriteBorders: 1
