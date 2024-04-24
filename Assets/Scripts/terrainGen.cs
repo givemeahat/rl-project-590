@@ -17,7 +17,7 @@ public class terrainGen : MonoBehaviour
     public float heightRange;
     private float randomLow = 10;
     private float randomHigh = 15;
-    private float distanceBetweenPoints;
+    public float distanceBetweenPoints;
     
     public GameObject grassPrefab;
 
@@ -96,17 +96,20 @@ public class terrainGen : MonoBehaviour
                 if (i % 2 == 0)
                 {
                     shape.spline.SetPosition(i + 2, new Vector3(xPos, yPos + heightRange, 0));
+                    shape.spline.SetSpriteIndex(i +2, UnityEngine.Random.Range(0, 5));
                     //fPath.AddPathPoint(new Vector2(xPos, yPos + heightRange));
                 }
                 else
                 {
                     shape.spline.SetPosition(i + 2, new Vector3(xPos, yPos - heightRange, 0));
+                    shape.spline.SetSpriteIndex(i + 2, UnityEngine.Random.Range(0, 5));
                     //fPath.AddPathPoint(new Vector2(xPos, yPos - heightRange));
                 }
             }
             else
             {
                 shape.spline.SetPosition(i + 2, new Vector3(xPos, yPos, 0));
+                shape.spline.SetSpriteIndex(i + 2, UnityEngine.Random.Range(0, 5));
                 //fPath.AddPathPoint(new Vector2(xPos, yPos));
             }
 

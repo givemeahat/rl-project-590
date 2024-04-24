@@ -20,6 +20,8 @@ public class GM : MonoBehaviour
     public GameObject player;
     public jankController playerCont;
 
+    public int islandCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,10 +72,16 @@ public class GM : MonoBehaviour
 
     public void GenerateNextIsland()
     {
+        islandCount++;
+        GameObject.FindGameObjectWithTag("Hunter").GetComponent<Hunter>().speed = GameObject.FindGameObjectWithTag("Hunter").GetComponent<Hunter>().speed + 20;
         GameObject terrain = Instantiate(terrainPrefab) as GameObject;
-        terrain.GetComponent<terrainGen>().generateTerrain();
-        playerCont.TerrainGen = terrain.GetComponent<terrainGen>();
-        terrain.transform.localPosition = new Vector3(player.transform.position.x + 1000f, 0f, 182f);
+        terrainGen _gen = terrain.GetComponent<terrainGen>();
+        _gen.pointCount = 200;
+        _gen.minHeightDifference = 2;
+        _gen.heightRange = 3 + islandCount;
+        _gen.generateTerrain();
+        playerCont.TerrainGen = _gen;
+        terrain.transform.localPosition = new Vector3(player.transform.position.x + 350f, 0f, 182f);
         levelGenTriggered = true;
     }
 
