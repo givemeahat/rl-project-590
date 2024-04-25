@@ -95,7 +95,12 @@ public class terrainGen : MonoBehaviour
             {
                 if (i % 2 == 0)
                 {
-                    shape.spline.SetPosition(i + 2, new Vector3(xPos, yPos + heightRange, 0));
+                    /*if (shape.spline.GetPosition(i - 2).y > 50)
+                    {
+                        float _num = UnityEngine.Random.Range(0, 1);
+                        if (_num > .5) yPos = yPos + 50;
+                    }*/
+                    shape.spline.SetPosition(i+2, new Vector3(xPos, yPos + heightRange, 0));
                     shape.spline.SetSpriteIndex(i +2, UnityEngine.Random.Range(0, 5));
                     //fPath.AddPathPoint(new Vector2(xPos, yPos + heightRange));
                 }

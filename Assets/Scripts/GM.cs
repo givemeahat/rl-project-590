@@ -76,9 +76,10 @@ public class GM : MonoBehaviour
         GameObject.FindGameObjectWithTag("Hunter").GetComponent<Hunter>().speed = GameObject.FindGameObjectWithTag("Hunter").GetComponent<Hunter>().speed + 20;
         GameObject terrain = Instantiate(terrainPrefab) as GameObject;
         terrainGen _gen = terrain.GetComponent<terrainGen>();
-        _gen.pointCount = 200;
-        _gen.minHeightDifference = 2;
-        _gen.heightRange = 3 + islandCount;
+        //_gen.pointCount = 250;
+        _gen.scale = 3000;
+        _gen.minHeightDifference = 1;
+        _gen.heightRange = 2 + islandCount;
         _gen.generateTerrain();
         playerCont.TerrainGen = _gen;
         terrain.transform.localPosition = new Vector3(player.transform.position.x + 350f, 0f, 182f);

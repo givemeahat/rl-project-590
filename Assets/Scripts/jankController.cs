@@ -169,7 +169,6 @@ public class jankController : MonoBehaviour
                 else if (uphill && grounded)
                 {
                     playerSprite.transform.rotation = Quaternion.Lerp(playerSprite.transform.rotation, Quaternion.Euler(0, 0, computedAngle), 0.5f);
-
                     //playerSprite.transform.rotation = Quaternion.Euler(0, 0, computedAngle);
                 }
             }
