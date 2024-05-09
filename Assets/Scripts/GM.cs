@@ -79,7 +79,7 @@ public class GM : MonoBehaviour
         //_gen.pointCount = 250;
         _gen.scale = 3000;
         _gen.minHeightDifference = 1;
-        _gen.heightRange = 2 + islandCount;
+        _gen.heightRange = 1.5f + islandCount;
         _gen.generateTerrain();
         playerCont.TerrainGen = _gen;
         terrain.transform.localPosition = new Vector3(player.transform.position.x + 350f, 0f, 182f);
