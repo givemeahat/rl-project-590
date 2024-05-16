@@ -30,6 +30,7 @@ public class TutorialManager : MonoBehaviour
 
     public void EndTutorial()
     {
+        tutorialCount++;
         this.gameObject.SetActive(false);
         player.GetComponent<jankController>().enabled = true;
 
