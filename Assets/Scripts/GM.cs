@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GM : MonoBehaviour
 {
+    public bool tutorialFinished;
     public GameObject gameOverScreen;
     public GameObject pauseScreen;
     public bool isPaused = false;

@@ -8,6 +8,8 @@ public class TutorialManager : MonoBehaviour
     Animator anim;
     GameObject player;
 
+    public SkyTrigger skyTriggerObj;
+
     public void Start()
     {
         anim = this.GetComponent<Animator>();
@@ -24,13 +26,14 @@ public class TutorialManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 anim.Play("Tutorial_P1_Fade");
+                tutorialCount++;
             }
         }
     }
 
     public void EndTutorial()
     {
-        tutorialCount++;
+        //skyTriggerObj.TriggerObjectGen();
         this.gameObject.SetActive(false);
         player.GetComponent<jankController>().enabled = true;
 

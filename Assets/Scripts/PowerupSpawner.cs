@@ -15,10 +15,10 @@ public class PowerupSpawner : MonoBehaviour
     public void Awake()
     {
         grassMask = LayerMask.GetMask("Ground");
-        GenerateGrass();
+        GeneratePWRUps();
     }
 
-    public void GenerateGrass()
+    public void GeneratePWRUps()
     {
         float xPlusVal = Random.Range(10,1000);
         this.transform.position = new Vector3(this.transform.position.x + xPlusVal, this.transform.position.y);
@@ -34,7 +34,7 @@ public class PowerupSpawner : MonoBehaviour
             //_go.transform.rotation = new Quaternion (_go.transform.rotation.x, _go.transform.rotation.y, hit.normal.x, 0f);
             _go.transform.up = hit.normal;
             _go.transform.localPosition = new Vector3(_go.transform.localPosition.x, _go.transform.localPosition.y + .5f, -8f);
-            GenerateGrass();
+            GeneratePWRUps();
         }
     }
 
@@ -42,7 +42,7 @@ public class PowerupSpawner : MonoBehaviour
     {
         if (!isDone)
         {
-            GenerateGrass();
+            GeneratePWRUps();
         }
     }
 }

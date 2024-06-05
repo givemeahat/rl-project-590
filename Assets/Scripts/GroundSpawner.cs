@@ -34,7 +34,7 @@ public class GroundSpawner : MonoBehaviour
             //attempting to set Z axis rotation by the raycast's normal
             //_go.transform.rotation = new Quaternion (_go.transform.rotation.x, _go.transform.rotation.y, hit.normal.x, 0f);
             _go.transform.up = hit.normal;
-            _go.transform.localPosition = new Vector3(_go.transform.localPosition.x, _go.transform.localPosition.y, 18f);
+            _go.transform.localPosition = new Vector3(_go.transform.localPosition.x, _go.transform.localPosition.y + .5f, 18f);
             GenerateGrass();
         }
     }

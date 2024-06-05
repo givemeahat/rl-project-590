@@ -8,7 +8,6 @@ public class switchPriority : MonoBehaviour
     public CinemachineVirtualCamera vcam1; //original vcam
     public CinemachineVirtualCamera vcam2; //vcam to switch to
     public int priority = 10;
-
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.tag.Equals("Player")) {
