@@ -7,21 +7,31 @@ using UnityEngine.SceneManagement;
 
 public class GM : MonoBehaviour
 {
+    //=== tutorial variables ===
     public bool tutorialFinished;
+
+    //=== pause/settings ===
     public GameObject gameOverScreen;
     public GameObject pauseScreen;
     public bool isPaused = false;
     public TMP_Text menuScoreText;
-    public GameObject bonusText;
 
+    //=== settings menu ===
+    public float volume;
+    public bool postProcessing;
+    public bool fullscreenMode;
+    
+    //=== terrain/island gen ===
     public GameObject terrainPrefab;
     public List<GameObject> islands;
     public bool levelGenTriggered;
+    public int islandCount = 0;
 
+    //=== player stuff ===
     public GameObject player;
     public jankController playerCont;
 
-    public int islandCount = 0;
+    public GameObject bonusText;
 
     // Start is called before the first frame update
     void Start()
