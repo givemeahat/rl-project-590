@@ -10,6 +10,10 @@ public class GM : MonoBehaviour
     //=== tutorial variables ===
     public bool tutorialFinished;
 
+    //===storing master GM/DDOL GM===
+    public GameObject masterGM;
+    public GameObject masterGMPrefab;
+    
     //=== pause/settings ===
     public GameObject gameOverScreen;
     public GameObject pauseScreen;
@@ -32,6 +36,14 @@ public class GM : MonoBehaviour
     public jankController playerCont;
 
     public GameObject bonusText;
+
+    private void Awake()
+    {
+        if (GameObject.FindGameObjectWithTag("DDOL") == null || masterGM == null)
+        {
+            masterGM = Instantiate(masterGMPrefab) as GameObject;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
